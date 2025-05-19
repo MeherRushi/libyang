@@ -1,9 +1,10 @@
 /**
  * @file in.h
  * @author Radek Krejci <rkrejci@cesnet.cz>
+ * @author Michal Vasko <mvasko@cesnet.cz>
  * @brief libyang input structures and functions
  *
- * Copyright (c) 2020 CESNET, z.s.p.o.
+ * Copyright (c) 2020 - 2025 CESNET, z.s.p.o.
  *
  * This source code is licensed under BSD 3-Clause License (the "License").
  * You may not use this file except in compliance with the License.
@@ -231,6 +232,19 @@ LIBYANG_API_DECL void ly_in_free(struct ly_in *in, ly_bool destroy);
  * @return LY_EDENIED on EOF.
  */
 LIBYANG_API_DECL LY_ERR ly_in_read(struct ly_in *in, void *buf, size_t count);
+
+/**
+ * @brief Peek at the next byte in an input.
+ *
+ * The peeked byte is normally read on the next ::ly_in_read() or ::ly_in_skip() call.
+ *
+ * @param[in] in Input structure.
+ * @param[out] peek Peeked character.
+ * @return LY_SUCCESS on success,
+ * @return LY_ENOT if a byte has already been peeked but not read;
+ * @return LY_EDENIED on EOF.
+ */
+LIBYANG_API_DECL LY_ERR ly_in_peek(struct ly_in *in, uint8_t *peek);
 
 /**
  * @brief Just skip bytes in an input.
