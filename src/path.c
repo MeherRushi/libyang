@@ -715,8 +715,8 @@ ly_path_compile_predicate(const struct ly_ctx *ctx, const struct lysc_node *cur_
 
                 /* store the value */
                 LOG_LOCSET(key, NULL);
-                rc = lyd_value_store(ctx_node->module->ctx, &p->value, ((struct lysc_node_leaf *)key)->type, val, val_len, 0, 0,
-                        NULL, format, prefix_data, LYD_HINT_DATA, key, NULL);
+                rc = lyd_value_store(ctx_node->module->ctx, &p->value, ((struct lysc_node_leaf *)key)->type, val,
+                        val_len * 8, 0, 0, NULL, format, prefix_data, LYD_HINT_DATA, key, NULL);
                 LOG_LOCBACK(1, 0);
                 LY_CHECK_ERR_GOTO(rc, p->value.realtype = NULL, cleanup);
 
@@ -776,8 +776,8 @@ ly_path_compile_predicate(const struct ly_ctx *ctx, const struct lysc_node *cur_
         }
 
         /* store the value */
-        rc = lyd_value_store(ctx_node->module->ctx, &p->value, ((struct lysc_node_leaflist *)ctx_node)->type, val, val_len, 0, 0,
-                NULL, format, prefix_data, LYD_HINT_DATA, ctx_node, NULL);
+        rc = lyd_value_store(ctx_node->module->ctx, &p->value, ((struct lysc_node_leaflist *)ctx_node)->type, val,
+                val_len * 8, 0, 0, NULL, format, prefix_data, LYD_HINT_DATA, ctx_node, NULL);
         LY_CHECK_ERR_GOTO(rc, p->value.realtype = NULL, cleanup);
         ++(*tok_idx);
 

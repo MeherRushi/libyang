@@ -1416,7 +1416,7 @@ lyd_validate_unique(const struct lyd_node *first, const struct lysc_node *snode,
     struct ly_set *set;
     LY_ARRAY_COUNT_TYPE u, v, x = 0;
     LY_ERR ret = LY_SUCCESS;
-    uint32_t hash, i, key_len;
+    uint32_t hash, i, key_size_bits;
     ly_bool dyn;
     const void *hash_key;
     struct lyd_val_uniq_arg arg, *args = NULL;
@@ -1476,8 +1476,8 @@ lyd_validate_unique(const struct lyd_node *first, const struct lysc_node *snode,
                     }
 
                     /* get hash key */
-                    hash_key = val->realtype->plugin->print(NULL, val, LY_VALUE_LYB, NULL, &dyn, &key_len);
-                    hash = lyht_hash_multi(hash, hash_key, key_len);
+                    hash_key = val->realtype->plugin->print(NULL, val, LY_VALUE_LYB, NULL, &dyn, &key_size_bits);
+                    hash = lyht_hash_multi(hash, hash_key, LYPLG_BITS2BYTES(key_size_bits));
                     if (dyn) {
                         free((void *)hash_key);
                     }

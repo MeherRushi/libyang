@@ -1713,7 +1713,7 @@ set_comp_canonize(struct lyxp_set *set, const struct lyxp_set_node *xp_node)
     }
 
     /* print canonized string, ignore errors, the value may not satisfy schema constraints */
-    r = type->plugin->store(set->ctx, type, set->val.str, strlen(set->val.str), 0, set->format, set->prefix_data,
+    r = type->plugin->store(set->ctx, type, set->val.str, strlen(set->val.str) * 8, 0, set->format, set->prefix_data,
             LYD_HINT_DATA, xp_node->node->schema, &val, NULL, &err);
     ly_err_free(err);
     if (r && (r != LY_EINCOMPLETE)) {
@@ -3629,7 +3629,7 @@ warn_equality_value(const struct lyxp_expr *exp, struct lyxp_set *set, uint32_t 
 
         type = ((struct lysc_node_leaf *)scnode)->type;
         if (type->basetype != LY_TYPE_IDENT) {
-            rc = type->plugin->store(set->ctx, type, value, strlen(value), 0, set->format, set->prefix_data,
+            rc = type->plugin->store(set->ctx, type, value, strlen(value) * 8, 0, set->format, set->prefix_data,
                     LYD_HINT_DATA, scnode, &storage, NULL, &err);
             if (rc == LY_EINCOMPLETE) {
                 rc = LY_SUCCESS;

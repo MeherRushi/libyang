@@ -711,26 +711,26 @@ lyb_print_value(const struct ly_ctx *ctx, const struct lyd_value *value, struct 
     LY_ERR ret = LY_SUCCESS;
     ly_bool dynamic = 0;
     void *val;
-    uint32_t val_len = 0;
-    int32_t lyb_data_len;
+    uint32_t val_size_bits = 0;
+    int32_t lyb_size_bits;
     lyplg_type_print_clb print;
 
     assert(value->realtype && value->realtype->plugin && value->realtype->plugin->print);
 
-    /* get length of LYB data to print */
-    lyb_data_len = value->realtype->plugin->lyb_data_len;
+    /* get size of LYB data to print */
+    lyb_size_bits = value->realtype->plugin->lyb_size(value->realtype);
 
     /* get value and also print its length only if size is not fixed */
     print = value->realtype->plugin->print;
-    if (lyb_data_len < 0) {
+    if (lyb_size_bits < 0) {
         /* variable-length data */
 
         /* get value and its length from plugin */
-        val = (void *)print(ctx, value, LY_VALUE_LYB, NULL, &dynamic, &val_len);
+        val = (void *)print(ctx, value, LY_VALUE_LYB, NULL, &dynamic, &val_size_bits);
         LY_CHECK_ERR_GOTO(!val, ret = LY_EINT, cleanup);
 
         /* print the length of the data in bits */
-        ret = lyb_write_size(val_len * 8, lybctx);
+        ret = lyb_write_size(val_size_bits, lybctx);
         LY_CHECK_GOTO(ret, cleanup);
     } else {
         /* fixed-length data */
@@ -740,12 +740,12 @@ lyb_print_value(const struct ly_ctx *ctx, const struct lyd_value *value, struct 
         LY_CHECK_GOTO(ret, cleanup);
 
         /* copy the length from the compiled node */
-        val_len = lyb_data_len;
+        val_size_bits = lyb_size_bits;
     }
 
     /* print value */
-    if (val_len > 0) {
-        ret = lyb_write(val, val_len * 8, lybctx);
+    if (val_size_bits > 0) {
+        ret = lyb_write(val, val_size_bits, lybctx);
         LY_CHECK_GOTO(ret, cleanup);
     }
 
