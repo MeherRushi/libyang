@@ -207,6 +207,9 @@ struct ly_ctx;
                                         loaded except for built-in YANG types so all derived types will use these and
                                         for all purposes behave as the base type. The option can be used for cases when
                                         invalid data needs to be stored in YANG node values. */
+#define LY_CTX_COMPILE_OBSOLETE 0x1000  /**< Obsolete nodes are normally not compiled into the compiled schema. This
+                                        flag changes the behavior to include them so they can be created and validated
+                                        just like current and deprecated nodes. */
 
 /** @} contextoptions */
 
