@@ -502,17 +502,18 @@ node_has_printable_meta(const struct lyd_node *node)
 static LY_ERR
 json_print_attributes(struct jsonpr_ctx *pctx, const struct lyd_node *node, ly_bool inner)
 {
-    const struct lys_module *wdmod = NULL;
+    const struct lys_module *df_mod = NULL;
 
     if (node->schema && (node->schema->nodetype != LYS_CONTAINER) && (((node->flags & LYD_DEFAULT) &&
             (pctx->options & (LYD_PRINT_WD_ALL_TAG | LYD_PRINT_WD_IMPL_TAG))) ||
             ((pctx->options & LYD_PRINT_WD_ALL_TAG) && lyd_is_default(node)))) {
-        /* we have implicit OR explicit default node */
-        /* get with-defaults module */
-        wdmod = ly_ctx_get_module_implemented(LYD_CTX(node), "ietf-netconf-with-defaults");
+        /* we have implicit OR explicit default node, print only if we have with-defaults module */
+        if (ly_ctx_get_module_implemented(LYD_CTX(node), "ietf-netconf-with-defaults")) {
+            df_mod = ly_ctx_get_module_implemented(LYD_CTX(node), "default");
+        }
     }
 
-    if (node->schema && (wdmod || node_has_printable_meta(node))) {
+    if (node->schema && (df_mod || node_has_printable_meta(node))) {
         if (inner) {
             LY_CHECK_RET(json_print_member2(pctx, lyd_parent(node), LY_VALUE_JSON, NULL, 1));
         } else {
@@ -520,7 +521,7 @@ json_print_attributes(struct jsonpr_ctx *pctx, const struct lyd_node *node, ly_b
         }
         ly_print_(pctx->out, "{%s", (DO_FORMAT ? "\n" : ""));
         LEVEL_INC;
-        LY_CHECK_RET(json_print_metadata(pctx, node, wdmod));
+        LY_CHECK_RET(json_print_metadata(pctx, node, df_mod));
         LEVEL_DEC;
         ly_print_(pctx->out, "%s%*s}", DO_FORMAT ? "\n" : "", INDENT);
         LEVEL_PRINTED;
