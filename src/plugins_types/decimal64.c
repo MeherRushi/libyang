@@ -87,7 +87,7 @@ lyplg_type_lyb_size_decimal64(const struct lysc_type *UNUSED(type))
     return 64;
 }
 
-LIBYANG_API_DEF LY_ERR
+static LY_ERR
 lyplg_type_store_decimal64(const struct ly_ctx *ctx, const struct lysc_type *type, const void *value, uint32_t value_size_bits,
         uint32_t options, LY_VALUE_FORMAT format, void *UNUSED(prefix_data), uint32_t hints,
         const struct lysc_node *UNUSED(ctx_node), struct lyd_value *storage, struct lys_glob_unres *UNUSED(unres),
@@ -166,7 +166,7 @@ cleanup:
     return ret;
 }
 
-LIBYANG_API_DEF LY_ERR
+static LY_ERR
 lyplg_type_compare_decimal64(const struct ly_ctx *UNUSED(ctx), const struct lyd_value *val1,
         const struct lyd_value *val2)
 {
@@ -177,7 +177,7 @@ lyplg_type_compare_decimal64(const struct ly_ctx *UNUSED(ctx), const struct lyd_
     return LY_SUCCESS;
 }
 
-LIBYANG_API_DEF int
+static int
 lyplg_type_sort_decimal64(const struct ly_ctx *UNUSED(ctx), const struct lyd_value *val1, const struct lyd_value *val2)
 {
     if (val1->dec64 > val2->dec64) {
@@ -189,7 +189,7 @@ lyplg_type_sort_decimal64(const struct ly_ctx *UNUSED(ctx), const struct lyd_val
     }
 }
 
-LIBYANG_API_DEF const void *
+static const void *
 lyplg_type_print_decimal64(const struct ly_ctx *UNUSED(ctx), const struct lyd_value *value, LY_VALUE_FORMAT format,
         void *UNUSED(prefix_data), ly_bool *dynamic, uint32_t *value_size_bits)
 {
@@ -242,7 +242,7 @@ const struct lyplg_type_record plugins_decimal64[] = {
         .revision = NULL,
         .name = LY_TYPE_DEC64_STR,
 
-        .plugin.id = "libyang 2 - decimal64, version 1",
+        .plugin.id = "ly2 decimal64",
         .plugin.lyb_size = lyplg_type_lyb_size_decimal64,
         .plugin.store = lyplg_type_store_decimal64,
         .plugin.validate = NULL,

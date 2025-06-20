@@ -213,7 +213,7 @@ const struct lyplg_type_record plugins_ipv4_address_no_zone[] = {
         .revision = "2013-07-15",
         .name = "ipv4-address-no-zone",
 
-        .plugin.id = "libyang 2 - ipv4-address-no-zone, version 1",
+        .plugin.id = "ly2 ipv4-address-no-zone",
         .plugin.lyb_size = lyplg_type_lyb_size_ipv4_address_no_zone,
         .plugin.store = lyplg_type_store_ipv4_address_no_zone,
         .plugin.validate = NULL,

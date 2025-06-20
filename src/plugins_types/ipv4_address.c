@@ -395,7 +395,7 @@ const struct lyplg_type_record plugins_ipv4_address[] = {
         .revision = "2013-07-15",
         .name = "ipv4-address",
 
-        .plugin.id = "libyang 2 - ipv4-address, version 1",
+        .plugin.id = "ly2 ipv4-address",
         .plugin.lyb_size = lyplg_type_lyb_size_variable,
         .plugin.store = lyplg_type_store_ipv4_address,
         .plugin.validate = NULL,

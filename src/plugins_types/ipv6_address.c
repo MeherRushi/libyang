@@ -397,7 +397,7 @@ const struct lyplg_type_record plugins_ipv6_address[] = {
         .revision = "2013-07-15",
         .name = "ipv6-address",
 
-        .plugin.id = "libyang 2 - ipv6-address, version 1",
+        .plugin.id = "ly2 ipv6-address",
         .plugin.lyb_size = lyplg_type_lyb_size_variable,
         .plugin.store = lyplg_type_store_ipv6_address,
         .plugin.validate = NULL,

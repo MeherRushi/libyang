@@ -139,7 +139,7 @@ const struct lyplg_type_record plugins_lyds_tree[] = {
         .revision = NULL,
         .name = "lyds_tree",
 
-        .plugin.id = "libyang 2 - lyds_tree, version 1",
+        .plugin.id = "ly2 lyds_tree",
         .plugin.lyb_size = lyplg_type_lyb_size_lyds,
         .plugin.store = lyplg_type_store_lyds,
         .plugin.validate = NULL,

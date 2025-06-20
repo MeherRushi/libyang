@@ -43,6 +43,8 @@
  */
 static const char b64_etable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
+static void lyplg_type_free_binary(const struct ly_ctx *ctx, struct lyd_value *value);
+
 /**
  * @brief Encode binary value into a base64 string value.
  *
@@ -252,7 +254,7 @@ binary_base64_newlines(char **value, uint32_t *value_size, uint32_t *options, st
     return LY_SUCCESS;
 }
 
-LIBYANG_API_DEF LY_ERR
+static LY_ERR
 lyplg_type_store_binary(const struct ly_ctx *ctx, const struct lysc_type *type, const void *value, uint32_t value_size_bits,
         uint32_t options, LY_VALUE_FORMAT format, void *UNUSED(prefix_data), uint32_t hints,
         const struct lysc_node *UNUSED(ctx_node), struct lyd_value *storage, struct lys_glob_unres *UNUSED(unres),
@@ -344,7 +346,7 @@ cleanup:
     return ret;
 }
 
-LIBYANG_API_DEF LY_ERR
+static LY_ERR
 lyplg_type_compare_binary(const struct ly_ctx *UNUSED(ctx), const struct lyd_value *val1, const struct lyd_value *val2)
 {
     struct lyd_value_binary *v1, *v2;
@@ -358,7 +360,7 @@ lyplg_type_compare_binary(const struct ly_ctx *UNUSED(ctx), const struct lyd_val
     return LY_SUCCESS;
 }
 
-LIBYANG_API_DEF int
+static int
 lyplg_type_sort_binary(const struct ly_ctx *UNUSED(ctx), const struct lyd_value *val1, const struct lyd_value *val2)
 {
     struct lyd_value_binary *v1, *v2;
@@ -378,7 +380,7 @@ lyplg_type_sort_binary(const struct ly_ctx *UNUSED(ctx), const struct lyd_value 
     return cmp;
 }
 
-LIBYANG_API_DEF const void *
+static const void *
 lyplg_type_print_binary(const struct ly_ctx *ctx, const struct lyd_value *value, LY_VALUE_FORMAT format,
         void *UNUSED(prefix_data), ly_bool *dynamic, uint32_t *value_size_bits)
 {
@@ -420,7 +422,7 @@ lyplg_type_print_binary(const struct ly_ctx *ctx, const struct lyd_value *value,
     return value->_canonical;
 }
 
-LIBYANG_API_DEF LY_ERR
+static LY_ERR
 lyplg_type_dup_binary(const struct ly_ctx *ctx, const struct lyd_value *original, struct lyd_value *dup)
 {
     LY_ERR ret;
@@ -450,7 +452,7 @@ error:
     return ret;
 }
 
-LIBYANG_API_DEF void
+static void
 lyplg_type_free_binary(const struct ly_ctx *ctx, struct lyd_value *value)
 {
     struct lyd_value_binary *val;
@@ -477,7 +479,7 @@ const struct lyplg_type_record plugins_binary[] = {
         .revision = NULL,
         .name = LY_TYPE_BINARY_STR,
 
-        .plugin.id = "libyang 2 - binary, version 1",
+        .plugin.id = "ly2 binary",
         .plugin.lyb_size = lyplg_type_lyb_size_variable,
         .plugin.store = lyplg_type_store_binary,
         .plugin.validate = NULL,

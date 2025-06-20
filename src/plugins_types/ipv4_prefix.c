@@ -346,7 +346,7 @@ const struct lyplg_type_record plugins_ipv4_prefix[] = {
         .revision = "2013-07-15",
         .name = "ipv4-prefix",
 
-        .plugin.id = "libyang 2 - ipv4-prefix, version 1",
+        .plugin.id = "ly2 ipv4-prefix",
         .plugin.lyb_size = lyplg_type_lyb_size_ipv4_prefix,
         .plugin.store = lyplg_type_store_ipv4_prefix,
         .plugin.validate = NULL,

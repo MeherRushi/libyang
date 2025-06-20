@@ -342,7 +342,7 @@ const struct lyplg_type_record plugins_node_instanceid[] = {
         .revision = "2012-02-22",
         .name = "node-instance-identifier",
 
-        .plugin.id = "libyang 2 - node-instance-identifier, version 1",
+        .plugin.id = "ly2 node-instance-identifier",
         .plugin.lyb_size = lyplg_type_lyb_size_variable,
         .plugin.store = lyplg_type_store_node_instanceid,
         .plugin.validate = NULL,
@@ -357,7 +357,7 @@ const struct lyplg_type_record plugins_node_instanceid[] = {
         .revision = "2018-02-14",
         .name = "node-instance-identifier",
 
-        .plugin.id = "libyang 2 - node-instance-identifier, version 1",
+        .plugin.id = "ly2 node-instance-identifier",
         .plugin.lyb_size = lyplg_type_lyb_size_variable,
         .plugin.store = lyplg_type_store_node_instanceid,
         .plugin.validate = NULL,

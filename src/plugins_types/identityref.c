@@ -228,7 +228,7 @@ identityref_check_ident(const struct lysc_ident *ident, const char *value,
     return ret;
 }
 
-LIBYANG_API_DEF LY_ERR
+static LY_ERR
 lyplg_type_store_identityref(const struct ly_ctx *ctx, const struct lysc_type *type, const void *value, uint32_t value_size_bits,
         uint32_t options, LY_VALUE_FORMAT format, void *prefix_data, uint32_t hints, const struct lysc_node *ctx_node,
         struct lyd_value *storage, struct lys_glob_unres *unres, struct ly_err_item **err)
@@ -305,7 +305,7 @@ cleanup:
     return ret;
 }
 
-LIBYANG_API_DEF LY_ERR
+static LY_ERR
 lyplg_type_compare_identityref(const struct ly_ctx *UNUSED(ctx), const struct lyd_value *val1,
         const struct lyd_value *val2)
 {
@@ -315,14 +315,14 @@ lyplg_type_compare_identityref(const struct ly_ctx *UNUSED(ctx), const struct ly
     return LY_ENOT;
 }
 
-LIBYANG_API_DEF int
+static int
 lyplg_type_sort_identityref(const struct ly_ctx *UNUSED(ctx), const struct lyd_value *val1,
         const struct lyd_value *val2)
 {
     return strcmp(val1->ident->name, val2->ident->name);
 }
 
-LIBYANG_API_DEF const void *
+static const void *
 lyplg_type_print_identityref(const struct ly_ctx *UNUSED(ctx), const struct lyd_value *value, LY_VALUE_FORMAT format,
         void *prefix_data, ly_bool *dynamic, uint32_t *value_size_bits)
 {
@@ -364,7 +364,7 @@ const struct lyplg_type_record plugins_identityref[] = {
         .revision = NULL,
         .name = LY_TYPE_IDENT_STR,
 
-        .plugin.id = "libyang 2 - identityref, version 1",
+        .plugin.id = "ly2 identityref",
         .plugin.lyb_size = lyplg_type_lyb_size_variable,
         .plugin.store = lyplg_type_store_identityref,
         .plugin.validate = NULL,

@@ -87,7 +87,7 @@ const struct lyplg_type_record plugins_time_period[] = {
         .revision = "2024-07-09",
         .name = "time-period",
 
-        .plugin.id = "libyang 2 - time-period, version 1",
+        .plugin.id = "ly2 time-period",
         .plugin.lyb_size = lyplg_type_lyb_size_variable,
         .plugin.store = lyplg_type_store_string,
         .plugin.validate = NULL,

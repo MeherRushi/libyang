@@ -1699,16 +1699,9 @@ set_comp_canonize(struct lyxp_set *set, const struct lyxp_set_node *xp_node)
     }
 
     /* check for built-in types without required canonization */
-    if ((type->basetype == LY_TYPE_STRING) && (type->plugin->store == lyplg_type_store_string)) {
-        /* string */
-        return LY_SUCCESS;
-    }
-    if ((type->basetype == LY_TYPE_BOOL) && (type->plugin->store == lyplg_type_store_boolean)) {
-        /* boolean */
-        return LY_SUCCESS;
-    }
-    if ((type->basetype == LY_TYPE_ENUM) && (type->plugin->store == lyplg_type_store_enum)) {
-        /* enumeration */
+    if (!strncmp(type->plugin->id, "ly2", 3) && ((type->basetype == LY_TYPE_STRING) || (type->basetype == LY_TYPE_BOOL) ||
+            (type->basetype == LY_TYPE_ENUM))) {
+        /* string, boolean, enumeration */
         return LY_SUCCESS;
     }
 

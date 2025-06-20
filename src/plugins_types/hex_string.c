@@ -123,7 +123,7 @@ const struct lyplg_type_record plugins_hex_string[] = {
         .revision = "2013-07-15",
         .name = "phys-address",
 
-        .plugin.id = "libyang 2 - hex-string, version 1",
+        .plugin.id = "ly2 hex-string",
         .plugin.lyb_size = lyplg_type_lyb_size_variable,
         .plugin.store = lyplg_type_store_hex_string,
         .plugin.validate = NULL,
@@ -138,7 +138,7 @@ const struct lyplg_type_record plugins_hex_string[] = {
         .revision = "2013-07-15",
         .name = "mac-address",
 
-        .plugin.id = "libyang 2 - hex-string, version 1",
+        .plugin.id = "ly2 hex-string",
         .plugin.lyb_size = lyplg_type_lyb_size_variable,
         .plugin.store = lyplg_type_store_hex_string,
         .plugin.validate = NULL,
@@ -153,7 +153,7 @@ const struct lyplg_type_record plugins_hex_string[] = {
         .revision = "2013-07-15",
         .name = "hex-string",
 
-        .plugin.id = "libyang 2 - hex-string, version 1",
+        .plugin.id = "ly2 hex-string",
         .plugin.lyb_size = lyplg_type_lyb_size_variable,
         .plugin.store = lyplg_type_store_hex_string,
         .plugin.validate = NULL,
@@ -168,7 +168,7 @@ const struct lyplg_type_record plugins_hex_string[] = {
         .revision = "2013-07-15",
         .name = "uuid",
 
-        .plugin.id = "libyang 2 - hex-string, version 1",
+        .plugin.id = "ly2 hex-string",
         .plugin.lyb_size = lyplg_type_lyb_size_variable,
         .plugin.store = lyplg_type_store_hex_string,
         .plugin.validate = NULL,

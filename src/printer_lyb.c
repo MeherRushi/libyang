@@ -754,7 +754,7 @@ lyb_print_value(const struct ly_ctx *ctx, const struct lyd_value *value, struct 
         val = (void *)print(ctx, value, LY_VALUE_LYB, NULL, &dynamic, NULL);
         LY_CHECK_GOTO(ret, cleanup);
 
-        /* copy the length from the compiled node */
+        /* use the returned length */
         val_size_bits = lyb_size_bits;
     }
 
