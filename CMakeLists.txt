@@ -119,6 +119,7 @@ set(libsrc
     src/diff.c
     src/context.c
     src/json.c
+    src/cborr.c
     src/tree_data.c
     src/tree_data_free.c
     src/tree_data_common.c
@@ -126,6 +127,7 @@ set(libsrc
     src/tree_data_new.c
     src/parser_xml.c
     src/parser_json.c
+    src/parser_cbor.c
     src/parser_lyb.c
     src/out.c
     src/printer_data.c
@@ -190,6 +192,7 @@ set(internal_headers
     src/hash_table_internal.h
     src/in_internal.h
     src/json.h
+    src/cborr.h
     src/lyb.h
     src/out_internal.h
     src/parser_internal.h
