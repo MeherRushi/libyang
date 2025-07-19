@@ -67,7 +67,8 @@ struct lyd_cbor_ctx
 
     /* CBOR-specific members */
     enum lyd_cbor_format format; /**< CBOR format being parsed */
-    const struct ly_ctx *ctx;    /**< libyang context */
+    const struct ly_ctx *ctx;    /**< libyang context */                //??? is this needed here? PS : not initialised in lydcbor_ctx_new
+    const struct lycbor_ctx *cborctx;                                   //??? since lycbor_ctx has a member ly_ctx
 
     /* callbacks */
     lyd_ctx_free_clb free; /**< destructor */

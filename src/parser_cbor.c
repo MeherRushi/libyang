@@ -24,6 +24,7 @@
 #include <string.h>
 #include <inttypes.h>
 
+#include <cbor.h>
 #include "compat.h"
 #include "context.h"
 #include "dict.h"
@@ -40,7 +41,7 @@
 #include "tree_schema.h"
 #include "validation.h"
 
-#include "cbor.h"
+#include "cborr.h"
 
 /**
  * @brief Free the CBOR parser context.
@@ -449,6 +450,33 @@ cleanup:
     return ret;
 }
 
+static LY_ERR
+lydcbor_subtree_r(struct lyd_cbor_ctx *lydctx, struct lyd_node *parent, struct lyd_node **first_p, struct ly_set *parsed)
+{
+    // called as lydcbor_subtree_r(lydctx, parent, first_p, parsed);
+    LY_ERR r, rc = LY_SUCCESS;
+    enum LYCBOR_PARSER_STATUS status = lycbor_ctx_status(lydctx->cborctx);      // will fail since lydctx->cborctxis NULL
+    //
+    const char *name, *prefix = NULL, *expected = NULL;
+    size_t name_len, prefix_len = 0;
+    ly_bool is_meta = 0, parse_subtree;
+    const struct lysc_node *snode = NULL;
+    struct lysc_ext_instance *ext = NULL;
+    struct lyd_node *node = NULL, *attr_node = NULL;
+    const struct ly_ctx *ctx = lydctx->cborctx->ctx;    //ly_ctx is the context of YANG schema
+                                                        //???why is a ly_ctx associated with every lycbor_ctx in lyd_cbor_ctx??
+    char *value = NULL;
+
+    assert(parent || first_p);
+    assert((status == LYCBOR_OBJECT) || (status == LYCBOR_OBJECT_NEXT));
+    
+    printf("exiting lydcbor_subtree_r\n");
+
+    return LY_SUCCESS;
+
+
+}
+
 LY_ERR
 lydcbor_detect_format(struct ly_in *in, enum lyd_cbor_format *format)
 {
@@ -475,11 +503,16 @@ lyd_parse_cbor(const struct ly_ctx *ctx, const struct lysc_ext_instance *ext, st
                struct ly_set *parsed, ly_bool *subtree_sibling, struct lyd_ctx **lydctx_p)
 {
     printf("Entered lyd_parse_cbor\n");
+
     LY_ERR ret = LY_SUCCESS;
+    LY_ERR r, rc = LY_SUCCESS;
     struct lyd_cbor_ctx *lydctx = NULL;
+    enum LYCBOR_PARSER_STATUS status;
+
     cbor_item_t *cbor_data = NULL;
     size_t cbor_size = strlen(in->current);
     printf("Parsing CBOR data of size: %zu\n", cbor_size);
+
     const char *cbor_input = NULL;
     struct cbor_load_result result = {0};
     enum lyd_cbor_format format;
@@ -494,8 +527,26 @@ lyd_parse_cbor(const struct ly_ctx *ctx, const struct lysc_ext_instance *ext, st
     /* Detect CBOR format - Named or SID */ 
     LY_CHECK_GOTO(ret = lydcbor_detect_format(in, &format), cleanup);
 
-    /* Initialize context */
+    /* Initialize context --- needs to be changed as lydctx->cborctx has to be initialised */
+    // lydctx did not have member cborctx, was added later
     LY_CHECK_GOTO(ret = lydcbor_ctx_new(ctx, ext, parse_opts, val_opts, format, &lydctx), cleanup);
+
+    LY_CHECK_GOTO(rc = lyd_parse_cbor_init(ctx, in, parse_opts, val_opts, &lydctx));
+
+    // Parse using cbor parser
+    //read subtrees
+    do {
+        printf("Inside do while loop\n");
+        r = lydcbor_subtree_r(lydctx, parent, first_p, parsed);
+        // LY_DPARSER_ERR_GOTO(r, ret = r, lydctx, cleanup); // Uncomment when lydcbor_subtree_r is implemented
+
+        status = lycbor_ctx_status(lydctx->cborctx);
+        if (!(int_opts & LYD_INTOPT_WITH_SIBLINGS)) {   //what is int_opts? what exactly is this checking?
+            break;
+        }
+
+    } while (status == LYCBOR_OBJECT_NEXT);
+
 
     /* Parse CBOR using libcbor */
     cbor_data = cbor_load((const unsigned char *)in->current, cbor_size, &result);
@@ -580,5 +631,38 @@ lyd_print_cbor_data(const struct lyd_node *root, enum lyd_cbor_format format, st
     LOGERR(NULL, LY_ENOT, "CBOR printing not yet implemented");
     return LY_ENOT;
 }
+
+static LY_ERR
+lyd_parse_cbor_init(const struct ly_ctx *ctx, struct ly_in *in, uint32_t parse_opts, uint32_t val_opts,
+                    struct lyd_cbor_ctx **lydctx_p)
+{
+    LY_ERR ret = LY_SUCCESS;
+    struct lyd_cbor_ctx *lydctx;
+
+    assert(lydctx_p);
+
+    /* Initialize context */
+    lydctx = calloc(1, sizeof *lydctx);
+    LY_CHECK_ERR_RET(!lydctx, LOGMEM(ctx), LY_EMEM);
+    lydctx->parse_opts = parse_opts;
+    lydctx->val_opts = val_opts;
+    lydctx->free = lyd_cbor_ctx_free;
+
+    /* Create CBOR parser context */
+    LY_CHECK_ERR_RET(ret = lycbor_ctx_new(ctx, in, &lydctx->cborctx), free(lydctx), ret);
+    status - lycbor_ctx_status(lydctx->cborctx);
+
+    /* Check for top-level object */
+    if (lycbor_ctx_status(lydctx->cborctx) != LYCBOR_OBJECT) {
+        LOGVAL(ctx, LYVE_SYNTAX_JSON, "Expected top-level CBOR object.");
+        free(lydctx);
+        *lydctx_p = NULL;
+        return LY_EVALID;
+    }
+
+    *lydctx_p = lydctx;
+    return LY_SUCCESS;
+}
+
 
 #endif /* ENABLE_CBOR_SUPPORT */
