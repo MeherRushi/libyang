@@ -1,0 +1,102 @@
+Determining if the strnstr exist failed with the following output:
+Change Dir: /home/sidhub/Desktop/ietf/libyang_meher/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_ecfb1/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_ecfb1.dir/build.make CMakeFiles/cmTC_ecfb1.dir/build
+gmake[1]: Entering directory '/home/sidhub/Desktop/ietf/libyang_meher/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ecfb1.dir/CheckSymbolExists.c.o
+/usr/bin/gcc -D_DEFAULT_SOURCE -D_GNU_SOURCE -D_POSIX_C_SOURCE=200809L -D__BSD_VISIBLE=1  -g3 -O0  -Wall -Wextra -Wpedantic -std=c11  -o CMakeFiles/cmTC_ecfb1.dir/CheckSymbolExists.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/sidhub/Desktop/ietf/libyang_meher/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/sidhub/Desktop/ietf/libyang_meher/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘strnstr’ undeclared (first use in this function); did you mean ‘strstr’?
+    8 |   return ((int*)(&strnstr))[argc];
+      |                   ^~~~~~~
+      |                   strstr
+/home/sidhub/Desktop/ietf/libyang_meher/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+/home/sidhub/Desktop/ietf/libyang_meher/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:4:14: warning: parameter ‘argc’ set but not used [-Wunused-but-set-parameter]
+    4 | int main(int argc, char** argv)
+      |          ~~~~^~~~
+gmake[1]: *** [CMakeFiles/cmTC_ecfb1.dir/build.make:78: CMakeFiles/cmTC_ecfb1.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/sidhub/Desktop/ietf/libyang_meher/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_ecfb1/fast] Error 2
+
+
+File /home/sidhub/Desktop/ietf/libyang_meher/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <string.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strnstr
+  return ((int*)(&strnstr))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strnstr exist failed with the following output:
+Change Dir: /home/sidhub/Desktop/ietf/libyang_meher/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_b6cc0 && [1/2] Building C object CMakeFiles/cmTC_b6cc0.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_b6cc0.dir/CheckSymbolExists.c.o 
+/usr/bin/gcc-12 -D_DEFAULT_SOURCE -D_GNU_SOURCE -D_POSIX_C_SOURCE=200809L -D__BSD_VISIBLE=1  -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -o CMakeFiles/cmTC_b6cc0.dir/CheckSymbolExists.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/sidhub/Desktop/ietf/libyang_meher/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/sidhub/Desktop/ietf/libyang_meher/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘strnstr’ undeclared (first use in this function); did you mean ‘strstr’?
+    8 |   return ((int*)(&strnstr))[argc];
+      |                   ^~~~~~~
+      |                   strstr
+/home/sidhub/Desktop/ietf/libyang_meher/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+/home/sidhub/Desktop/ietf/libyang_meher/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:4:14: warning: parameter ‘argc’ set but not used [-Wunused-but-set-parameter]
+    4 | int main(int argc, char** argv)
+      |          ~~~~^~~~
+ninja: build stopped: subcommand failed.
+
+
+File /home/sidhub/Desktop/ietf/libyang_meher/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <string.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strnstr
+  return ((int*)(&strnstr))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strnstr exist failed with the following output:
+Change Dir: /home/sidhub/Desktop/ietf/libyang_meher/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_3dc55/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_3dc55.dir/build.make CMakeFiles/cmTC_3dc55.dir/build
+gmake[1]: Entering directory '/home/sidhub/Desktop/ietf/libyang_meher/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3dc55.dir/CheckSymbolExists.c.o
+/usr/bin/gcc -D_DEFAULT_SOURCE -D_GNU_SOURCE -D_POSIX_C_SOURCE=200809L -D__BSD_VISIBLE=1  -g3 -O0  -Wall -Wextra -Wpedantic -std=c11  -o CMakeFiles/cmTC_3dc55.dir/CheckSymbolExists.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/sidhub/Desktop/ietf/libyang_meher/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/sidhub/Desktop/ietf/libyang_meher/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘strnstr’ undeclared (first use in this function); did you mean ‘strstr’?
+    8 |   return ((int*)(&strnstr))[argc];
+      |                   ^~~~~~~
+      |                   strstr
+/home/sidhub/Desktop/ietf/libyang_meher/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+/home/sidhub/Desktop/ietf/libyang_meher/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:4:14: warning: parameter ‘argc’ set but not used [-Wunused-but-set-parameter]
+    4 | int main(int argc, char** argv)
+      |          ~~~~^~~~
+gmake[1]: *** [CMakeFiles/cmTC_3dc55.dir/build.make:78: CMakeFiles/cmTC_3dc55.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/sidhub/Desktop/ietf/libyang_meher/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_3dc55/fast] Error 2
+
+
+File /home/sidhub/Desktop/ietf/libyang_meher/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <string.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strnstr
+  return ((int*)(&strnstr))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}

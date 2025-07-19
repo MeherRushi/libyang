@@ -1,0 +1,160 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-e98f14509fd446b90bcc.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						4
+					]
+				},
+				{
+					"build" : "tools",
+					"childIndexes" : 
+					[
+						2,
+						3
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-tools-Debug-f9645b0170a45a75eff2.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "tools"
+				},
+				{
+					"build" : "tools/lint",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-tools.lint-Debug-c012535b61846fa7d41d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "tools/lint",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "tools/re",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-tools.re-Debug-864629cd26294706ba6f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "tools/re",
+					"targetIndexes" : 
+					[
+						5
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					],
+					"name" : "libyang",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "cclean::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cclean-Debug-e00e097c3a46a1f7e44d.json",
+					"name" : "cclean",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-Debug-3bccc5582feab4741bd6.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "yang::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-yang-Debug-20f16e30e369f04247d8.json",
+					"name" : "yang",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "yanglint::@ac7bbe0d76dd7e67787e",
+					"jsonFile" : "target-yanglint-Debug-5d7fb23acab768bb6d1e.json",
+					"name" : "yanglint",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "yangobj::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-yangobj-Debug-cf51915b2bea7d869ecd.json",
+					"name" : "yangobj",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "yangre::@40208861960469d761a0",
+					"jsonFile" : "target-yangre-Debug-6558b2894ae1b19b0de6.json",
+					"name" : "yangre",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/sidhub/Desktop/ietf/libyang_meher/build",
+		"source" : "/home/sidhub/Desktop/ietf/libyang_meher"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

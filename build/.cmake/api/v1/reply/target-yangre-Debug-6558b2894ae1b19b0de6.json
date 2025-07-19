@@ -1,0 +1,228 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "yangre"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"install",
+			"target_link_libraries",
+			"add_definitions",
+			"target_include_directories",
+			"include_directories",
+			"use_compat"
+		],
+		"files" : 
+		[
+			"tools/re/CMakeLists.txt",
+			"CMakeLists.txt",
+			"CMakeModules/UseCompat.cmake"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 11,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 13,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 12,
+				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 330,
+				"parent" : 4
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 15,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 1,
+				"line" : 82,
+				"parent" : 4
+			},
+			{
+				"command" : 6,
+				"file" : 1,
+				"line" : 381,
+				"parent" : 4
+			},
+			{
+				"command" : 5,
+				"file" : 2,
+				"line" : 69,
+				"parent" : 8
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIE"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 5,
+					"define" : "ENABLE_CBOR_SUPPORT"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 6,
+					"path" : "/home/sidhub/Desktop/ietf/libyang_meher/build"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/sidhub/Desktop/ietf/libyang_meher/build/libyang"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/sidhub/Desktop/ietf/libyang_meher/src"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts"
+				},
+				{
+					"backtrace" : 9,
+					"path" : "/home/sidhub/Desktop/ietf/libyang_meher/build/compat"
+				}
+			],
+			"language" : "C",
+			"sourceIndexes" : 
+			[
+				0,
+				1
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 3,
+			"id" : "yang::@6890427a1f51a3e7e1df"
+		}
+	],
+	"id" : "yangre::@40208861960469d761a0",
+	"install" : 
+	{
+		"destinations" : 
+		[
+			{
+				"backtrace" : 2,
+				"path" : "bin"
+			}
+		],
+		"prefix" : 
+		{
+			"path" : "/usr/local"
+		}
+	},
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "-L/usr/lib/x86_64-linux-gnu/hdf5/serial/ -L/usr/lib",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "-Wl,-rpath,/home/sidhub/Desktop/ietf/libyang_meher/build:",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "../../libyang.so.3.9.1",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-ldl",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lm",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libpcre2-8.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lcbor",
+				"role" : "libraries"
+			}
+		],
+		"language" : "C"
+	},
+	"name" : "yangre",
+	"nameOnDisk" : "yangre",
+	"paths" : 
+	{
+		"build" : "tools/re",
+		"source" : "tools/re"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "tools/re/main.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "compat/compat.c",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "EXECUTABLE"
+}

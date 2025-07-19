@@ -1,0 +1,512 @@
+[
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/ly_common.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/ly_common.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/ly_common.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/log.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/log.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/log.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/hash_table.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/hash_table.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/hash_table.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/dict.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/dict.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/dict.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/set.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/set.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/set.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/path.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/path.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/path.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/diff.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/diff.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/diff.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/context.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/context.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/context.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/json.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/json.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/json.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/tree_data.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/tree_data.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/tree_data.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/tree_data_free.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/tree_data_free.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/tree_data_free.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/tree_data_common.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/tree_data_common.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/tree_data_common.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/tree_data_hash.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/tree_data_hash.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/tree_data_hash.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/tree_data_new.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/tree_data_new.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/tree_data_new.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/parser_xml.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/parser_xml.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/parser_xml.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/parser_json.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/parser_json.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/parser_json.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/parser_lyb.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/parser_lyb.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/parser_lyb.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/out.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/out.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/out.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/printer_data.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/printer_data.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/printer_data.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/printer_xml.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/printer_xml.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/printer_xml.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/printer_json.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/printer_json.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/printer_json.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/printer_lyb.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/printer_lyb.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/printer_lyb.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/schema_compile.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/schema_compile.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/schema_compile.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/schema_compile_node.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/schema_compile_node.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/schema_compile_node.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/schema_compile_amend.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/schema_compile_amend.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/schema_compile_amend.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/schema_features.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/schema_features.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/schema_features.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/tree_data_sorted.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/tree_data_sorted.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/tree_data_sorted.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/tree_schema.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/tree_schema.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/tree_schema.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/tree_schema_free.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/tree_schema_free.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/tree_schema_free.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/tree_schema_common.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/tree_schema_common.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/tree_schema_common.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/in.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/in.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/in.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/lyb.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/lyb.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/lyb.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/parser_common.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/parser_common.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/parser_common.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/parser_yang.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/parser_yang.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/parser_yang.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/parser_yin.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/parser_yin.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/parser_yin.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/printer_schema.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/printer_schema.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/printer_schema.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/printer_yang.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/printer_yang.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/printer_yang.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/printer_yin.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/printer_yin.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/printer_yin.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/printer_tree.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/printer_tree.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/printer_tree.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/plugins.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/plugins.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/plugins.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/plugins_types.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/plugins_exts.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/plugins_exts/metadata.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts/metadata.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts/metadata.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/plugins_exts/nacm.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts/nacm.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts/nacm.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/plugins_exts/yangdata.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts/yangdata.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts/yangdata.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/plugins_exts/schema_mount.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts/schema_mount.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts/schema_mount.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/plugins_exts/structure.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts/structure.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts/structure.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/xml.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/xml.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/xml.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/xpath.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/xpath.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/xpath.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/validation.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/validation.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/validation.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/plugins_types/binary.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/binary.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/binary.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/plugins_types/bits.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/bits.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/bits.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/plugins_types/boolean.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/boolean.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/boolean.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/plugins_types/decimal64.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/decimal64.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/decimal64.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/plugins_types/empty.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/empty.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/empty.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/plugins_types/enumeration.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/enumeration.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/enumeration.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/plugins_types/identityref.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/identityref.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/identityref.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/plugins_types/instanceid.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/instanceid.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/instanceid.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/plugins_types/instanceid_keys.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/instanceid_keys.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/instanceid_keys.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/plugins_types/integer.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/integer.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/integer.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/plugins_types/leafref.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/leafref.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/leafref.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/plugins_types/lyds_tree.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/lyds_tree.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/lyds_tree.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/plugins_types/string.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/string.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/string.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/plugins_types/union.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/union.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/union.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/plugins_types/ipv4_address.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/ipv4_address.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/ipv4_address.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/plugins_types/ipv4_address_no_zone.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/ipv4_address_no_zone.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/ipv4_address_no_zone.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/plugins_types/ipv6_address.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/ipv6_address.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/ipv6_address.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/plugins_types/ipv6_address_no_zone.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/ipv6_address_no_zone.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/ipv6_address_no_zone.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/plugins_types/ipv4_prefix.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/ipv4_prefix.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/ipv4_prefix.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/plugins_types/ipv6_prefix.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/ipv6_prefix.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/ipv6_prefix.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/plugins_types/date_and_time.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/date_and_time.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/date_and_time.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/plugins_types/hex_string.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/hex_string.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/hex_string.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/plugins_types/xpath1.0.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/xpath1.0.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/xpath1.0.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/plugins_types/node_instanceid.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/node_instanceid.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/node_instanceid.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/plugins_types/time_period.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/time_period.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_types/time_period.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/src/parser_cbor.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/src/parser_cbor.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/src/parser_cbor.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -DLIBYANG_BUILD -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIC -fvisibility=hidden -o CMakeFiles/yangobj.dir/compat/compat.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/compat/compat.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/compat/compat.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -I/home/sidhub/Desktop/ietf/libyang_meher/build -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIE -o tools/lint/CMakeFiles/yanglint.dir/main_ni.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/tools/lint/main_ni.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/tools/lint/main_ni.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -I/home/sidhub/Desktop/ietf/libyang_meher/build -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIE -o tools/lint/CMakeFiles/yanglint.dir/cmd.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/tools/lint/cmd.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/tools/lint/cmd.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -I/home/sidhub/Desktop/ietf/libyang_meher/build -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIE -o tools/lint/CMakeFiles/yanglint.dir/cmd_add.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/tools/lint/cmd_add.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/tools/lint/cmd_add.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -I/home/sidhub/Desktop/ietf/libyang_meher/build -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIE -o tools/lint/CMakeFiles/yanglint.dir/cmd_clear.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/tools/lint/cmd_clear.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/tools/lint/cmd_clear.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -I/home/sidhub/Desktop/ietf/libyang_meher/build -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIE -o tools/lint/CMakeFiles/yanglint.dir/cmd_data.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/tools/lint/cmd_data.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/tools/lint/cmd_data.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -I/home/sidhub/Desktop/ietf/libyang_meher/build -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIE -o tools/lint/CMakeFiles/yanglint.dir/cmd_list.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/tools/lint/cmd_list.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/tools/lint/cmd_list.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -I/home/sidhub/Desktop/ietf/libyang_meher/build -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIE -o tools/lint/CMakeFiles/yanglint.dir/cmd_feature.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/tools/lint/cmd_feature.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/tools/lint/cmd_feature.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -I/home/sidhub/Desktop/ietf/libyang_meher/build -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIE -o tools/lint/CMakeFiles/yanglint.dir/cmd_load.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/tools/lint/cmd_load.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/tools/lint/cmd_load.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -I/home/sidhub/Desktop/ietf/libyang_meher/build -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIE -o tools/lint/CMakeFiles/yanglint.dir/cmd_print.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/tools/lint/cmd_print.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/tools/lint/cmd_print.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -I/home/sidhub/Desktop/ietf/libyang_meher/build -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIE -o tools/lint/CMakeFiles/yanglint.dir/cmd_searchpath.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/tools/lint/cmd_searchpath.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/tools/lint/cmd_searchpath.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -I/home/sidhub/Desktop/ietf/libyang_meher/build -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIE -o tools/lint/CMakeFiles/yanglint.dir/cmd_extdata.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/tools/lint/cmd_extdata.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/tools/lint/cmd_extdata.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -I/home/sidhub/Desktop/ietf/libyang_meher/build -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIE -o tools/lint/CMakeFiles/yanglint.dir/cmd_help.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/tools/lint/cmd_help.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/tools/lint/cmd_help.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -I/home/sidhub/Desktop/ietf/libyang_meher/build -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIE -o tools/lint/CMakeFiles/yanglint.dir/cmd_verb.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/tools/lint/cmd_verb.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/tools/lint/cmd_verb.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -I/home/sidhub/Desktop/ietf/libyang_meher/build -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIE -o tools/lint/CMakeFiles/yanglint.dir/cmd_debug.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/tools/lint/cmd_debug.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/tools/lint/cmd_debug.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -I/home/sidhub/Desktop/ietf/libyang_meher/build -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIE -o tools/lint/CMakeFiles/yanglint.dir/yl_opt.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/tools/lint/yl_opt.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/tools/lint/yl_opt.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -I/home/sidhub/Desktop/ietf/libyang_meher/build -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIE -o tools/lint/CMakeFiles/yanglint.dir/yl_schema_features.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/tools/lint/yl_schema_features.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/tools/lint/yl_schema_features.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -I/home/sidhub/Desktop/ietf/libyang_meher/build -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIE -o tools/lint/CMakeFiles/yanglint.dir/common.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/tools/lint/common.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/tools/lint/common.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -I/home/sidhub/Desktop/ietf/libyang_meher/build -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIE -o tools/lint/CMakeFiles/yanglint.dir/main.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/tools/lint/main.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/tools/lint/main.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -I/home/sidhub/Desktop/ietf/libyang_meher/build -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIE -o tools/lint/CMakeFiles/yanglint.dir/completion.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/tools/lint/completion.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/tools/lint/completion.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -I/home/sidhub/Desktop/ietf/libyang_meher/build -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIE -o tools/lint/CMakeFiles/yanglint.dir/configuration.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/tools/lint/configuration.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/tools/lint/configuration.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -I/home/sidhub/Desktop/ietf/libyang_meher/build -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIE -o tools/lint/CMakeFiles/yanglint.dir/linenoise/linenoise.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/tools/lint/linenoise/linenoise.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/tools/lint/linenoise/linenoise.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -I/home/sidhub/Desktop/ietf/libyang_meher/build -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIE -o tools/lint/CMakeFiles/yanglint.dir/linenoise/utf8.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/tools/lint/linenoise/utf8.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/tools/lint/linenoise/utf8.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -I/home/sidhub/Desktop/ietf/libyang_meher/build -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIE -o tools/lint/CMakeFiles/yanglint.dir/__/__/compat/compat.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/compat/compat.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/compat/compat.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -I/home/sidhub/Desktop/ietf/libyang_meher/build -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIE -o tools/re/CMakeFiles/yangre.dir/main.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/tools/re/main.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/tools/re/main.c"
+},
+{
+  "directory": "/home/sidhub/Desktop/ietf/libyang_meher/build",
+  "command": "/usr/bin/gcc-12 -DENABLE_CBOR_SUPPORT -I/home/sidhub/Desktop/ietf/libyang_meher/build -I/home/sidhub/Desktop/ietf/libyang_meher/build/libyang -I/home/sidhub/Desktop/ietf/libyang_meher/src -I/home/sidhub/Desktop/ietf/libyang_meher/src/plugins_exts -I/home/sidhub/Desktop/ietf/libyang_meher/build/compat -g3 -O0  -Wall -Wextra -Wpedantic -std=c11 -g -fPIE -o tools/re/CMakeFiles/yangre.dir/__/__/compat/compat.c.o -c /home/sidhub/Desktop/ietf/libyang_meher/compat/compat.c",
+  "file": "/home/sidhub/Desktop/ietf/libyang_meher/compat/compat.c"
+}
+]

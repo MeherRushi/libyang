@@ -1,0 +1,133 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 474,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 477,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 478,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 484,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "/usr/local/share/yang/modules/libyang",
+			"paths" : 
+			[
+				{
+					"from" : "models",
+					"to" : "."
+				}
+			],
+			"type" : "directory"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"libyang.so.3.9.1",
+				"libyang.so.3"
+			],
+			"targetId" : "yang::@6890427a1f51a3e7e1df",
+			"targetIndex" : 2,
+			"targetInstallNamelink" : "skip",
+			"type" : "target"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"libyang.so"
+			],
+			"targetId" : "yang::@6890427a1f51a3e7e1df",
+			"targetIndex" : 2,
+			"targetInstallNamelink" : "only",
+			"type" : "target"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Unspecified",
+			"destination" : "include/libyang",
+			"paths" : 
+			[
+				"src/context.h",
+				"src/hash_table.h",
+				"src/dict.h",
+				"src/in.h",
+				"src/libyang.h",
+				"src/log.h",
+				"src/out.h",
+				"src/parser_data.h",
+				"src/parser_schema.h",
+				"src/plugins.h",
+				"src/plugins_exts.h",
+				"src/plugins_exts/metadata.h",
+				"src/plugins_types.h",
+				"src/printer_data.h",
+				"src/printer_schema.h",
+				"src/set.h",
+				"src/tree.h",
+				"src/tree_data.h",
+				"src/tree_edit.h",
+				"src/tree_schema.h",
+				"src/parser_cbor.h",
+				"build/libyang/version.h",
+				"build/libyang/ly_config.h"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"build/libyang.pc"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	}
+}
