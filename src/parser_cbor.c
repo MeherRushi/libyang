@@ -86,7 +86,7 @@ void print_json(cbor_item_t *item) {
 }
 
 /**
- * @brief Free the CBOR parser context - FIXED VERSION.
+ * @brief Free the CBOR parser context
  *
  * @param[in] lydctx Data parser context to free.
  */
@@ -95,24 +95,70 @@ lyd_cbor_ctx_free(struct lyd_ctx *lydctx)
 {
     struct lyd_cbor_ctx *ctx = (struct lyd_cbor_ctx *)lydctx;
 
-    if (!ctx) {
-        return;
+    if (ctx) {
+        /* Free CBOR-specific context first */
+        if (ctx->cborctx) {
+            lycbor_ctx_free(ctx->cborctx);
+            ctx->cborctx = NULL;
+        }
+        
+        /* Free the sets that are part of the base context */
+        ly_set_erase(&ctx->node_when, NULL);
+        ly_set_erase(&ctx->node_types, NULL);
+        ly_set_erase(&ctx->meta_types, NULL);
+        ly_set_erase(&ctx->ext_node, NULL);
+        ly_set_erase(&ctx->ext_val, NULL);
+        
+        /* Finally free the context structure itself */
+        free(ctx);
     }
-
-    ly_set_erase(&ctx->node_when, NULL);
-    ly_set_erase(&ctx->node_types, NULL);
-    ly_set_erase(&ctx->meta_types, NULL);
-    ly_set_erase(&ctx->ext_node, NULL);
-    ly_set_erase(&ctx->ext_val, NULL);
-    free(ctx);
 }
 
-
 /**
- * @brief Create new CBOR parser context - FIXED VERSION.
+ * @brief Create new CBOR context for parsing.
+ *
+ * @param[in] ctx libyang context.
+ * @param[in] in Input handler.
+ * @param[out] cbor_ctx_p Pointer to store the created CBOR context.
+ * @return LY_ERR value.
  */
 LY_ERR
-lydcbor_ctx_new(const struct ly_ctx *ctx, const struct lysc_ext_instance *ext,
+lycbor_ctx_new(const struct ly_ctx *ctx, struct ly_in *in, struct lycbor_ctx **cbor_ctx_p)
+{
+    LY_ERR ret = LY_SUCCESS;
+    struct lycbor_ctx *cbor_ctx;
+    
+    assert(ctx && in && cbor_ctx_p);
+    
+    /* Allocate and initialize CBOR context */
+    cbor_ctx = calloc(1, sizeof *cbor_ctx);
+    LY_CHECK_ERR_RET(!cbor_ctx, LOGMEM(ctx), LY_EMEM);
+    
+    cbor_ctx->ctx = ctx;
+    cbor_ctx->in = in;
+    
+    *cbor_ctx_p = cbor_ctx;
+    return ret;
+}
+
+/**
+ * @brief Free CBOR context.
+ *
+ * @param[in] cbor_ctx CBOR context to free.
+ */
+void
+lycbor_ctx_free(struct lycbor_ctx *cbor_ctx)
+{
+    if (cbor_ctx) {
+        free(cbor_ctx);
+    }
+}
+
+/**
+ * @brief Create new CBOR parser context 
+ */
+LY_ERR
+lydcbor_ctx_init(const struct ly_ctx *ctx, struct ly_in *in,
                 uint32_t parse_opts, uint32_t val_opts, enum lyd_cbor_format format,
                 struct lyd_cbor_ctx **lydctx_p)
 {
@@ -125,12 +171,14 @@ lydcbor_ctx_new(const struct ly_ctx *ctx, const struct lysc_ext_instance *ext,
     lydctx = calloc(1, sizeof *lydctx);
     LY_CHECK_ERR_RET(!lydctx, LOGMEM(ctx), LY_EMEM);
 
-    lydctx->ctx = ctx;
-    lydctx->ext = ext;
+    lydctx->cborctx = NULL; /* Will be set below */
     lydctx->parse_opts = parse_opts;
     lydctx->val_opts = val_opts;
     lydctx->format = format;
     lydctx->free = lyd_cbor_ctx_free;
+
+    /* Create low-level CBOR context */
+    LY_CHECK_GOTO(ret = lycbor_ctx_new(ctx, in, &lydctx->cborctx), cleanup);
 
     if (ly_set_new(&lydctx->node_when) ||
         ly_set_new(&lydctx->node_types) ||
@@ -282,18 +330,18 @@ lydcbor_get_key_string(struct lyd_cbor_ctx *lydctx, const cbor_item_t *key_item,
         /* Keys must be strings for named format */
         if (!cbor_isa_string(key_item))
         {
-            LOGVAL(lydctx->ctx, LYVE_SYNTAX, "CBOR map key must be string for named identifier format");
+            LOGVAL(lydctx->cborctx->ctx, LYVE_SYNTAX, "CBOR map key must be string for named identifier format");
             return LY_EVALID;
         }
         ret = lydcbor_item_to_string(key_item, key_str, key_len);
         break;
     case LYD_CBOR_SID:
         /* Future: Handle SID integer keys */
-        LOGVAL(lydctx->ctx, LYVE_SYNTAX, "CBOR SID format not yet implemented");
+        LOGVAL(lydctx->cborctx->ctx, LYVE_SYNTAX, "CBOR SID format not yet implemented");
         ret = LY_ENOT;
         break;
     default:
-        LOGVAL(lydctx->ctx, LYVE_SYNTAX, "Unknown CBOR format");
+        LOGVAL(lydctx->cborctx->ctx, LYVE_SYNTAX, "Unknown CBOR format");
         ret = LY_EINVAL;
         break;
     }
@@ -328,7 +376,7 @@ lydcbor_parse_value(struct lyd_cbor_ctx *lydctx, const struct lysc_node *snode,
         ret = lyd_create_any(snode, cbor_item, LYD_ANYDATA_CBOR, 0, node);
         break;
     default:
-        LOGVAL(lydctx->ctx, LYVE_SYNTAX, "Invalid schema node type for CBOR value");
+        LOGVAL(lydctx->cborctx->ctx, LYVE_SYNTAX, "Invalid schema node type for CBOR value");
         ret = LY_EVALID;
         break;
     }
@@ -427,8 +475,8 @@ lydcbor_get_snode(struct lyd_cbor_ctx *lydctx, const char *name, size_t name_len
         sparent = parent->schema;
         if (!sparent) {
             /* Opaque parent */
-            LOGVAL(lydctx->ctx, LYVE_SYNTAX, "Cannot parse \"%.*s\" node with opaque parent.",
-                   (int)local_name_len, local_name);
+            LOGVAL(lydctx->cborctx->ctx, LYVE_SYNTAX, "Cannot parse \"%.*s\" node with opaque parent.",
+                (int)local_name_len, local_name);
             ret = LY_EVALID;
             goto cleanup;
         }
@@ -438,15 +486,15 @@ lydcbor_get_snode(struct lyd_cbor_ctx *lydctx, const char *name, size_t name_len
 
     /* Resolve module if prefix is present */
     if (prefix) {
-        mod = ly_ctx_get_module_implemented2(lydctx->ctx, prefix, prefix_len);
+        mod = ly_ctx_get_module_implemented2(lydctx->cborctx->ctx, prefix, prefix_len);
         if (!mod) {
             if (lydctx->parse_opts & LYD_PARSE_STRICT) {
-                LOGVAL(lydctx->ctx, LYVE_REFERENCE, "Unknown module \"%.*s\".", (int)prefix_len, prefix);
+                LOGVAL(lydctx->cborctx->ctx, LYVE_REFERENCE, "Unknown module \"%.*s\".", (int)prefix_len, prefix);
                 ret = LY_EVALID;
                 goto cleanup;
             }
             if (!(lydctx->parse_opts & LYD_PARSE_OPAQ)) {
-                LOGVAL(lydctx->ctx, LYVE_REFERENCE, "Unknown module \"%.*s\".", (int)prefix_len, prefix);
+                LOGVAL(lydctx->cborctx->ctx, LYVE_REFERENCE, "Unknown module \"%.*s\".", (int)prefix_len, prefix);
                 ret = LY_EVALID;
                 goto cleanup;
             }
@@ -458,7 +506,7 @@ lydcbor_get_snode(struct lyd_cbor_ctx *lydctx, const char *name, size_t name_len
         uint32_t idx = 0;
         ly_bool found = 0;
         
-        while ((iter_mod = ly_ctx_get_module_iter(lydctx->ctx, &idx))) {
+        while ((iter_mod = ly_ctx_get_module_iter(lydctx->cborctx->ctx, &idx))) {
             if (!iter_mod->implemented) {
                 continue;
             }
@@ -467,7 +515,7 @@ lydcbor_get_snode(struct lyd_cbor_ctx *lydctx, const char *name, size_t name_len
             if (lys_find_child(NULL, iter_mod, local_name, local_name_len, 0, 0)) {
                 if (found) {
                     /* Ambiguous name */
-                    LOGVAL(lydctx->ctx, LYVE_SYNTAX, "Ambiguous node name \"%.*s\", use module prefix.",
+                    LOGVAL(lydctx->cborctx->ctx, LYVE_SYNTAX, "Ambiguous node name \"%.*s\", use module prefix.",
                            (int)local_name_len, local_name);
                     ret = LY_EVALID;
                     goto cleanup;
@@ -478,7 +526,7 @@ lydcbor_get_snode(struct lyd_cbor_ctx *lydctx, const char *name, size_t name_len
         }
         
         if (!found && !(lydctx->parse_opts & LYD_PARSE_OPAQ)) {
-            LOGVAL(lydctx->ctx, LYVE_SYNTAX, "Unknown node \"%.*s\".", (int)local_name_len, local_name);
+            LOGVAL(lydctx->cborctx->ctx, LYVE_SYNTAX, "Unknown node \"%.*s\".", (int)local_name_len, local_name);
             ret = LY_EVALID;
             goto cleanup;
         }
@@ -497,7 +545,7 @@ lydcbor_get_snode(struct lyd_cbor_ctx *lydctx, const char *name, size_t name_len
     /* Find schema node */
     if (sparent) {
         /* Search in parent's children */
-        *snode = lys_find_child(sparent, mod, local_name, local_name_len, 0, getnext_opts);
+        *snode = lys_find_child(sparent, sparent->module, local_name, local_name_len, 0, getnext_opts);
         
         /* Try to find extension data if regular node not found */
         if (!*snode && ext) {
@@ -523,10 +571,10 @@ lydcbor_get_snode(struct lyd_cbor_ctx *lydctx, const char *name, size_t name_len
     if (!*snode) {
         if (lydctx->parse_opts & LYD_PARSE_STRICT) {
             if (prefix) {
-                LOGVAL(lydctx->ctx, LYVE_REFERENCE, "Unknown element \"%.*s\" in module \"%.*s\".",
+                LOGVAL(lydctx->cborctx->ctx, LYVE_REFERENCE, "Unknown element \"%.*s\" in module \"%.*s\".",
                        (int)local_name_len, local_name, (int)prefix_len, prefix);
             } else {
-                LOGVAL(lydctx->ctx, LYVE_REFERENCE, "Unknown element \"%.*s\".",
+                LOGVAL(lydctx->cborctx->ctx, LYVE_REFERENCE, "Unknown element \"%.*s\".",
                        (int)local_name_len, local_name);
             }
             ret = LY_EVALID;
@@ -534,10 +582,10 @@ lydcbor_get_snode(struct lyd_cbor_ctx *lydctx, const char *name, size_t name_len
         } else if (!(lydctx->parse_opts & LYD_PARSE_OPAQ)) {
             /* Log error but continue if not in strict mode and opaque allowed */
             if (prefix) {
-                LOGVAL(lydctx->ctx, LYVE_REFERENCE, "Unknown element \"%.*s\" in module \"%.*s\".",
+                LOGVAL(lydctx->cborctx->ctx, LYVE_REFERENCE, "Unknown element \"%.*s\" in module \"%.*s\".",
                        (int)local_name_len, local_name, (int)prefix_len, prefix);
             } else {
-                LOGVAL(lydctx->ctx, LYVE_REFERENCE, "Unknown element \"%.*s\".",
+                LOGVAL(lydctx->cborctx->ctx, LYVE_REFERENCE, "Unknown element \"%.*s\".",
                        (int)local_name_len, local_name);
             }
             ret = LY_EVALID;
@@ -583,7 +631,7 @@ lydcbor_parse_node_value(struct lyd_cbor_ctx *lydctx, const struct lysc_node *sn
         ret = lyd_create_any(snode, cbor_value, LYD_ANYDATA_CBOR, 0, node);
         break;
     default:
-        LOGVAL(lydctx->ctx, LYVE_SYNTAX, "Invalid schema node type %d", snode->nodetype);
+        LOGVAL(lydctx->cborctx->ctx, LYVE_SYNTAX, "Invalid schema node type %d", snode->nodetype);
         ret = LY_EVALID;
         break;
     }
@@ -603,12 +651,12 @@ lydcbor_parse_leaflist_array(struct lyd_cbor_ctx *lydctx, const struct lysc_node
     assert(lydctx && snode && array_item && parsed);
     
     if (!cbor_isa_array(array_item)) {
-        LOGVAL(lydctx->ctx, LYVE_SYNTAX, "Expected CBOR array for leaf-list");
+        LOGVAL(lydctx->cborctx->ctx, LYVE_SYNTAX, "Expected CBOR array for leaf-list");
         return LY_EVALID;
     }
     
     if (snode->nodetype != LYS_LEAFLIST) {
-        LOGVAL(lydctx->ctx, LYVE_SYNTAX, "Schema node must be leaf-list");
+        LOGVAL(lydctx->cborctx->ctx, LYVE_SYNTAX, "Schema node must be leaf-list");
         return LY_EVALID;
     }
 
@@ -616,7 +664,7 @@ lydcbor_parse_leaflist_array(struct lyd_cbor_ctx *lydctx, const struct lysc_node
     array_handle = cbor_array_handle(array_item);
     
     if (!array_handle && array_size > 0) {
-        LOGVAL(lydctx->ctx, LYVE_SYNTAX, "Invalid CBOR array structure");
+        LOGVAL(lydctx->cborctx->ctx, LYVE_SYNTAX, "Invalid CBOR array structure");
         return LY_EVALID;
     }
 
@@ -624,7 +672,7 @@ lydcbor_parse_leaflist_array(struct lyd_cbor_ctx *lydctx, const struct lysc_node
         const cbor_item_t *item = array_handle[i];
         
         if (!item) {
-            LOGVAL(lydctx->ctx, LYVE_SYNTAX, "Null array element at index %zu", i);
+            LOGVAL(lydctx->cborctx->ctx, LYVE_SYNTAX, "Null array element at index %zu", i);
             ret = LY_EVALID;
             goto cleanup;
         }
@@ -632,7 +680,7 @@ lydcbor_parse_leaflist_array(struct lyd_cbor_ctx *lydctx, const struct lysc_node
         LY_CHECK_GOTO(ret = lydcbor_parse_node_value(lydctx, snode, &node, item), cleanup);
         
         if (!node) {
-            LOGVAL(lydctx->ctx, LYVE_SYNTAX, "Failed to create node for array element %zu", i);
+            LOGVAL(lydctx->cborctx->ctx, LYVE_SYNTAX, "Failed to create node for array element %zu", i);
             ret = LY_EVALID;
             goto cleanup;
         }
@@ -654,7 +702,7 @@ cleanup:
 }
 
 static LY_ERR
-lydcbor_parse_subtree(struct lyd_cbor_ctx *lydctx, const struct lysc_node *sparent,
+lydcbor_parse_subtree(struct lyd_cbor_ctx *lydctx, struct lyd_node *parent,
                      struct lyd_node **first_p, struct ly_set *parsed, const cbor_item_t *cbor_obj)
 {
     LY_ERR ret = LY_SUCCESS;
@@ -673,8 +721,11 @@ lydcbor_parse_subtree(struct lyd_cbor_ctx *lydctx, const struct lysc_node *spare
 
     assert(lydctx && first_p && parsed && cbor_obj);
 
+    /* assuming that the top level structure is always a map
+    to be modified to include anything else that it can support */
+
     if (!cbor_isa_map(cbor_obj)) {
-        LOGVAL(lydctx->ctx, LYVE_SYNTAX, "Expected CBOR map");
+        LOGVAL(lydctx->cborctx->ctx, LYVE_SYNTAX, "Expected CBOR map");
         return LY_EVALID;
     }
 
@@ -682,7 +733,7 @@ lydcbor_parse_subtree(struct lyd_cbor_ctx *lydctx, const struct lysc_node *spare
     struct cbor_pair *pairs = cbor_map_handle(cbor_obj);
     
     if (!pairs && map_size > 0) {
-        LOGVAL(lydctx->ctx, LYVE_SYNTAX, "Invalid CBOR map structure");
+        LOGVAL(lydctx->cborctx->ctx, LYVE_SYNTAX, "Invalid CBOR map structure");
         return LY_EVALID;
     }
 
@@ -691,7 +742,7 @@ lydcbor_parse_subtree(struct lyd_cbor_ctx *lydctx, const struct lysc_node *spare
         const cbor_item_t *value_item = pairs[i].value;
 
         if (!key_item || !value_item) {
-            LOGVAL(lydctx->ctx, LYVE_SYNTAX, "Null key or value at map index %zu", i);
+            LOGVAL(lydctx->cborctx->ctx, LYVE_SYNTAX, "Null key or value at map index %zu", i);
             ret = LY_EVALID;
             goto cleanup;
         }
@@ -701,8 +752,8 @@ lydcbor_parse_subtree(struct lyd_cbor_ctx *lydctx, const struct lysc_node *spare
         
        /* Find schema node */
         LY_CHECK_GOTO(ret = lydcbor_get_snode(lydctx, key_str, key_len, 
-                                      sparent ? lyd_parent(sparent) : NULL, 
-                                      &snode, NULL), cleanup);
+                                    parent, &snode, NULL), cleanup);
+
         /* Handle different node types */
         if (snode->nodetype & (LYS_LEAF | LYS_LEAFLIST)) {
             if (snode->nodetype == LYS_LEAFLIST && cbor_isa_array(value_item)) {
@@ -717,7 +768,7 @@ lydcbor_parse_subtree(struct lyd_cbor_ctx *lydctx, const struct lysc_node *spare
         } else if (snode->nodetype & (LYS_ANYDATA | LYS_ANYXML)) {
             ret = lydcbor_parse_any(lydctx, snode, value_item, first_p, parsed);
         } else {
-            LOGVAL(lydctx->ctx, LYVE_SYNTAX, "Invalid schema node type %d for \"%s\"", 
+            LOGVAL(lydctx->cborctx->ctx, LYVE_SYNTAX, "Invalid schema node type %d for \"%s\"", 
                    snode->nodetype, snode->name);
             ret = LY_EVALID;
         }
@@ -746,7 +797,7 @@ lydcbor_parse_terminal(struct lyd_cbor_ctx *lydctx, const struct lysc_node *snod
     LY_CHECK_RET(ret);
     
     if (!node) {
-        LOGVAL(lydctx->ctx, LYVE_SYNTAX, "Failed to create terminal node for \"%s\"", snode->name);
+        LOGVAL(lydctx->cborctx->ctx, LYVE_SYNTAX, "Failed to create terminal node for \"%s\"", snode->name);
         return LY_EVALID;
     }
     
@@ -772,7 +823,7 @@ lydcbor_parse_container(struct lyd_cbor_ctx *lydctx, const struct lysc_node *sno
     LY_CHECK_RET(ret);
     
     if (!node) {
-        LOGVAL(lydctx->ctx, LYVE_SYNTAX, "Failed to create container node for \"%s\"", snode->name);
+        LOGVAL(lydctx->cborctx->ctx, LYVE_SYNTAX, "Failed to create container node for \"%s\"", snode->name);
         return LY_EVALID;
     }
     
@@ -790,7 +841,7 @@ lydcbor_parse_container(struct lyd_cbor_ctx *lydctx, const struct lysc_node *sno
     /* Parse container children */
     if (cbor_isa_map(cbor_value) && cbor_map_size(cbor_value) > 0) {
         struct lyd_node *child_first = NULL;
-        ret = lydcbor_parse_subtree(lydctx, snode, &child_first, parsed, cbor_value);
+        ret = lydcbor_parse_subtree(lydctx, node, &child_first, parsed, cbor_value);
         if (ret) {
             return ret;
         }
@@ -817,12 +868,12 @@ lydcbor_parse_list_array(struct lyd_cbor_ctx *lydctx, const struct lysc_node *sn
     assert(lydctx && snode && array_item && parsed);
     
     if (!cbor_isa_array(array_item)) {
-        LOGVAL(lydctx->ctx, LYVE_SYNTAX, "Expected CBOR array for list");
+        LOGVAL(lydctx->cborctx->ctx, LYVE_SYNTAX, "Expected CBOR array for list");
         return LY_EVALID;
     }
     
     if (snode->nodetype != LYS_LIST) {
-        LOGVAL(lydctx->ctx, LYVE_SYNTAX, "Schema node must be list");
+        LOGVAL(lydctx->cborctx->ctx, LYVE_SYNTAX, "Schema node must be list");
         return LY_EVALID;
     }
 
@@ -830,7 +881,7 @@ lydcbor_parse_list_array(struct lyd_cbor_ctx *lydctx, const struct lysc_node *sn
     array_handle = cbor_array_handle(array_item);
     
     if (!array_handle && array_size > 0) {
-        LOGVAL(lydctx->ctx, LYVE_SYNTAX, "Invalid CBOR array structure");
+        LOGVAL(lydctx->cborctx->ctx, LYVE_SYNTAX, "Invalid CBOR array structure");
         return LY_EVALID;
     }
 
@@ -838,13 +889,13 @@ lydcbor_parse_list_array(struct lyd_cbor_ctx *lydctx, const struct lysc_node *sn
         const cbor_item_t *item = array_handle[i];
         
         if (!item) {
-            LOGVAL(lydctx->ctx, LYVE_SYNTAX, "Null array element at index %zu", i);
+            LOGVAL(lydctx->cborctx->ctx, LYVE_SYNTAX, "Null array element at index %zu", i);
             ret = LY_EVALID;
             goto cleanup;
         }
         
         if (!cbor_isa_map(item)) {
-            LOGVAL(lydctx->ctx, LYVE_SYNTAX, "List entry must be a CBOR map");
+            LOGVAL(lydctx->cborctx->ctx, LYVE_SYNTAX, "List entry must be a CBOR map");
             ret = LY_EVALID;
             goto cleanup;
         }
@@ -853,7 +904,7 @@ lydcbor_parse_list_array(struct lyd_cbor_ctx *lydctx, const struct lysc_node *sn
         LY_CHECK_GOTO(ret, cleanup);
         
         if (!node) {
-            LOGVAL(lydctx->ctx, LYVE_SYNTAX, "Failed to create list node");
+            LOGVAL(lydctx->cborctx->ctx, LYVE_SYNTAX, "Failed to create list node");
             ret = LY_EVALID;
             goto cleanup;
         }
@@ -867,7 +918,7 @@ lydcbor_parse_list_array(struct lyd_cbor_ctx *lydctx, const struct lysc_node *sn
         
         /* Parse list entry content */
         struct lyd_node *child_first = NULL;
-        ret = lydcbor_parse_subtree(lydctx, snode, &child_first, parsed, item);
+        ret = lydcbor_parse_subtree(lydctx, node, &child_first, parsed, item);
         LY_CHECK_GOTO(ret, cleanup);
         
         /* Link children to list entry */
@@ -914,7 +965,7 @@ lydcbor_parse_list(struct lyd_cbor_ctx *lydctx, const struct lysc_node *snode,
         
         /* Parse list entry content */
         struct lyd_node *child_first = NULL;
-        ret = lydcbor_parse_subtree(lydctx, snode, &child_first, parsed, cbor_value);
+        ret = lydcbor_parse_subtree(lydctx, node, &child_first, parsed, cbor_value);
         if (ret) {
             return ret;
         }
@@ -924,7 +975,7 @@ lydcbor_parse_list(struct lyd_cbor_ctx *lydctx, const struct lysc_node *snode,
             lyd_insert_child(node, child_first);
         }
     } else {
-        LOGVAL(lydctx->ctx, LYVE_SYNTAX, "List \"%s\" value must be a CBOR map or array", snode->name);
+        LOGVAL(lydctx->cborctx->ctx, LYVE_SYNTAX, "List \"%s\" value must be a CBOR map or array", snode->name);
         ret = LY_EVALID;
     }
     
@@ -942,7 +993,7 @@ lydcbor_parse_any(struct lyd_cbor_ctx *lydctx, const struct lysc_node *snode,
     LY_CHECK_RET(ret);
     
     if (!node) {
-        LOGVAL(lydctx->ctx, LYVE_SYNTAX, "Failed to create any node for \"%s\"", snode->name);
+        LOGVAL(lydctx->cborctx->ctx, LYVE_SYNTAX, "Failed to create any node for \"%s\"", snode->name);
         return LY_EVALID;
     }
     
@@ -1000,7 +1051,7 @@ lyd_parse_cbor(const struct ly_ctx *ctx, const struct lysc_ext_instance *ext, st
     LY_CHECK_GOTO(ret = lydcbor_detect_format(in, &format), cleanup);
 
     /* Initialize context */
-    LY_CHECK_GOTO(ret = lydcbor_ctx_new(ctx, ext, parse_opts, val_opts, format, &lydctx), cleanup);
+    LY_CHECK_GOTO(ret = lydcbor_ctx_init(ctx, in, parse_opts, val_opts, format, &lydctx), cleanup);
 
     /* 
      * Loads CBOR data from the current input buffer.
@@ -1014,6 +1065,8 @@ lyd_parse_cbor(const struct ly_ctx *ctx, const struct lysc_ext_instance *ext, st
      *   cbor_data - Pointer to the loaded CBOR data structure, or NULL on failure.
      */
     cbor_data = cbor_load(in->current, in->length, &result);
+    lydctx->cborctx->cbor_data = cbor_data;
+
     if (!cbor_data) {
         LOGVAL(ctx, LYVE_SYNTAX, "Failed to parse CBOR data: no data returned from cbor_load().");
         ret = LY_EVALID;
