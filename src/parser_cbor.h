@@ -19,6 +19,7 @@
 
 #include <stddef.h>
 #include <stdint.h>
+#include <cbor.h>
 
 #include "log.h"
 #include "tree_data.h"
@@ -172,6 +173,77 @@ LY_ERR lydcbor_parse_metadata(struct lyd_cbor_ctx *lydctx, const void *cbor_item
 LY_ERR lydcbor_ctx_new(const struct ly_ctx *ctx, const struct lysc_ext_instance *ext,
                        uint32_t parse_opts, uint32_t val_opts, enum lyd_cbor_format format,
                        struct lyd_cbor_ctx **lydctx_p);
+
+                       /* Add these declarations to parser_cbor.h or at the top of parser_cbor.c */
+
+static LY_ERR
+lydcbor_parse_leaflist_array(struct lyd_cbor_ctx *lydctx, const struct lysc_node *snode,
+                            const cbor_item_t *array_item, struct lyd_node **first_p, struct ly_set *parsed);
+
+
+static LY_ERR
+lydcbor_parse_list_array(struct lyd_cbor_ctx *lydctx, const struct lysc_node *snode,
+                        const cbor_item_t *array_item, struct lyd_node **first_p, struct ly_set *parsed);
+
+/**
+ * @brief Parse a CBOR container recursive
+ */
+static LY_ERR
+lydcbor_parse_subtree(struct lyd_cbor_ctx *lydctx, const struct lysc_node *sparent,
+                     struct lyd_node **first_p, struct ly_set *parsed, const cbor_item_t *cbor_obj);
+                     
+static LY_ERR
+lydcbor_parse_any(struct lyd_cbor_ctx *lydctx, const struct lysc_node *snode,
+                 const cbor_item_t *cbor_value, struct lyd_node **first_p, struct ly_set *parsed);
+
+static LY_ERR
+lydcbor_parse_list(struct lyd_cbor_ctx *lydctx, const struct lysc_node *snode,
+                  const cbor_item_t *cbor_value, struct lyd_node **first_p, struct ly_set *parsed);
+
+
+static LY_ERR
+lydcbor_parse_container(struct lyd_cbor_ctx *lydctx, const struct lysc_node *snode,
+                       const cbor_item_t *cbor_value, struct lyd_node **first_p, struct ly_set *parsed);
+
+static LY_ERR
+lydcbor_parse_terminal(struct lyd_cbor_ctx *lydctx, const struct lysc_node *snode,
+                      const cbor_item_t *cbor_value, struct lyd_node **first_p, struct ly_set *parsed);                       
+static LY_ERR
+lydcbor_parse_node_value(struct lyd_cbor_ctx *lydctx, const struct lysc_node *snode,
+                        struct lyd_node **node, const cbor_item_t *cbor_value);
+
+
+/**
+ * @brief Get schema node from CBOR node name, following lydjson_get_snode logic.
+ *
+ * @param[in] lydctx CBOR parser context.
+ * @param[in] name Node name.
+ * @param[in] name_len Length of node name.
+ * @param[in] parent Data parent node.
+ * @param[out] snode Schema node found.
+ * @param[out] ext Extension instance if found.
+ * @return LY_ERR value.
+ */
+static LY_ERR
+lydcbor_get_snode(struct lyd_cbor_ctx *lydctx, const char *name, size_t name_len,
+                  struct lyd_node *parent, const struct lysc_node **snode, 
+                  const struct lysc_ext_instance **ext);
+
+
+/**
+ * @brief Get module prefix from a qualified name.
+ *
+ * @param[in] qname Qualified name (prefix:name or just name).
+ * @param[in] qname_len Length of the qualified name.
+ * @param[out] prefix Extracted prefix (points into qname, not allocated).
+ * @param[out] prefix_len Length of the prefix.
+ * @param[out] name Local name (points into qname, not allocated).
+ * @param[out] name_len Length of the local name.
+ * @return LY_SUCCESS on success.
+ */
+static LY_ERR
+lydcbor_parse_qname(const char *qname, size_t qname_len, const char **prefix, size_t *prefix_len,
+                    const char **name, size_t *name_len);
 
 #endif /* ENABLE_CBOR_SUPPORT */
 

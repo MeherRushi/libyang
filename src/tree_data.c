@@ -242,6 +242,22 @@ lyd_parse_data(const struct ly_ctx *ctx, struct lyd_node *parent, struct ly_in *
 }
 
 LIBYANG_API_DEF LY_ERR
+lyd_parse_data_mem_len(const struct ly_ctx *ctx, const char *data, size_t data_len, LYD_FORMAT format,
+        uint32_t parse_options, uint32_t validate_options, struct lyd_node **tree)
+{
+    LY_ERR ret;
+    struct ly_in *in;
+
+    LY_CHECK_RET(ly_in_new_memory(data, &in));
+    in->length = data_len;  // Set the length for the input
+
+    ret = lyd_parse_data(ctx, NULL, in, format, parse_options, validate_options, tree);
+
+    ly_in_free(in, 0);
+    return ret;
+}
+
+LIBYANG_API_DEF LY_ERR
 lyd_parse_data_mem(const struct ly_ctx *ctx, const char *data, LYD_FORMAT format, uint32_t parse_options,
         uint32_t validate_options, struct lyd_node **tree)
 {
