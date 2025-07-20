@@ -44,6 +44,15 @@ enum lyd_cbor_format
     LYD_CBOR_SID    /**< CBOR with Schema Item identifiers (future implementation) */
 };
 
+struct lycbor_ctx {
+    const struct ly_ctx *ctx; /**< libyang context */
+    struct ly_in *in;   /**< input structure */
+    cbor_item_t *cbor_data; /**< parsed CBOR data */
+    enum lyd_cbor_format format; /**< CBOR format variant */
+    uint32_t parse_opts; /**< parser options */
+    uint32_t val_opts;   /**< validation options */
+};
+
 /**
  * @brief Internal context for CBOR YANG data parser.
  *
@@ -51,7 +60,7 @@ enum lyd_cbor_format
  * and provides CBOR-specific parsing state and configuration.
  */
 struct lyd_cbor_ctx
-{
+{  
     const struct lysc_ext_instance *ext; /**< extension instance possibly changing document root context, NULL if none */
     uint32_t parse_opts;                 /**< various @ref dataparseroptions. */
     uint32_t val_opts;                   /**< various @ref datavalidationoptions. */
@@ -64,15 +73,36 @@ struct lyd_cbor_ctx
     struct ly_set ext_node;              /**< set of nodes with extension instances to validate */
     struct ly_set ext_val;               /**< set of nested extension data to validate */
     struct lyd_node *op_node;            /**< if an operation is being parsed, its node */
-    struct lyd_node *tree;               /**< parsed data tree to validate, may be NULL */
-
-    /* CBOR-specific members */
-    enum lyd_cbor_format format; /**< CBOR format being parsed */
-    const struct ly_ctx *ctx;    /**< libyang context */
-
+     const struct lys_module *val_getnext_ht_mod;
+    struct ly_ht *val_getnext_ht;
+    
     /* callbacks */
     lyd_ctx_free_clb free; /**< destructor */
+
+    struct lycbor_ctx *cborctx; /**< CBOR context for low-level operations */
+
+     /* CBOR-specific members */
+    enum lyd_cbor_format format; /**< CBOR format being parsed */
 };
+
+/**
+ * @brief Create new CBOR context for parsing.
+ *
+ * @param[in] ctx libyang context.
+ * @param[in] in Input handler.
+ * @param[out] cbor_ctx_p Pointer to store the created CBOR context.
+ * @return LY_ERR value.
+ */
+LY_ERR
+lycbor_ctx_new(const struct ly_ctx *ctx, struct ly_in *in, struct lycbor_ctx **cbor_ctx_p);
+
+/**
+ * @brief Free CBOR context.
+ *
+ * @param[in] cbor_ctx CBOR context to free.
+ */
+void
+lycbor_ctx_free(struct lycbor_ctx *cbor_ctx);
 
 /**
  * @brief Parse CBOR data into libyang data tree.
@@ -170,7 +200,7 @@ LY_ERR lydcbor_parse_metadata(struct lyd_cbor_ctx *lydctx, const void *cbor_item
  * @param[out] lydctx_p Pointer to the created CBOR parser context.
  * @return LY_ERR value.
  */
-LY_ERR lydcbor_ctx_new(const struct ly_ctx *ctx, const struct lysc_ext_instance *ext,
+LY_ERR lydcbor_ctx_init(const struct ly_ctx *ctx, struct ly_in *in,
                        uint32_t parse_opts, uint32_t val_opts, enum lyd_cbor_format format,
                        struct lyd_cbor_ctx **lydctx_p);
 
@@ -189,9 +219,8 @@ lydcbor_parse_list_array(struct lyd_cbor_ctx *lydctx, const struct lysc_node *sn
  * @brief Parse a CBOR container recursive
  */
 static LY_ERR
-lydcbor_parse_subtree(struct lyd_cbor_ctx *lydctx, const struct lysc_node *sparent,
-                     struct lyd_node **first_p, struct ly_set *parsed, const cbor_item_t *cbor_obj);
-                     
+lydcbor_parse_subtree(struct lyd_cbor_ctx *lydctx, struct lyd_node *parent,
+                     struct lyd_node **first_p, struct ly_set *parsed, const cbor_item_t *cbor_obj);                    
 static LY_ERR
 lydcbor_parse_any(struct lyd_cbor_ctx *lydctx, const struct lysc_node *snode,
                  const cbor_item_t *cbor_value, struct lyd_node **first_p, struct ly_set *parsed);
