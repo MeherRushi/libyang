@@ -95,21 +95,9 @@ lyd_cbor_ctx_free(struct lyd_ctx *lydctx)
 {
     struct lyd_cbor_ctx *ctx = (struct lyd_cbor_ctx *)lydctx;
 
-    if (ctx) {
-        /* Free CBOR-specific context first */
-        if (ctx->cborctx) {
-            lycbor_ctx_free(ctx->cborctx);
-            ctx->cborctx = NULL;
-        }
-        
-        /* Free the sets that are part of the base context */
-        ly_set_erase(&ctx->node_when, NULL);
-        ly_set_erase(&ctx->node_types, NULL);
-        ly_set_erase(&ctx->meta_types, NULL);
-        ly_set_erase(&ctx->ext_node, NULL);
-        ly_set_erase(&ctx->ext_val, NULL);
-        
-        /* Finally free the context structure itself */
+    if(lydctx){
+        lyd_ctx_free(lydctx);
+        lycbor_ctx_free(ctx->cborctx);
         free(ctx);
     }
 }
@@ -163,32 +151,22 @@ lydcbor_ctx_init(const struct ly_ctx *ctx, struct ly_in *in,
                 struct lyd_cbor_ctx **lydctx_p)
 {
     LY_ERR ret = LY_SUCCESS;
-    struct lyd_cbor_ctx *lydctx;
+    struct lyd_cbor_ctx *lydctx = NULL;
 
-    assert(ctx && lydctx_p);
+    assert(lydctx_p);
 
     /* Initialize context with calloc to ensure all fields are zero */
     lydctx = calloc(1, sizeof *lydctx);
     LY_CHECK_ERR_RET(!lydctx, LOGMEM(ctx), LY_EMEM);
-
-    lydctx->cborctx = NULL; /* Will be set below */
     lydctx->parse_opts = parse_opts;
     lydctx->val_opts = val_opts;
-    lydctx->format = format;
     lydctx->free = lyd_cbor_ctx_free;
+    lydctx->format = format;
+    
+    lydctx->cborctx = NULL; /* Will be set below */
 
     /* Create low-level CBOR context */
     LY_CHECK_GOTO(ret = lycbor_ctx_new(ctx, in, &lydctx->cborctx), cleanup);
-
-    if (ly_set_new(&lydctx->node_when) ||
-        ly_set_new(&lydctx->node_types) ||
-        ly_set_new(&lydctx->meta_types) ||
-        ly_set_new(&lydctx->ext_node) ||
-        ly_set_new(&lydctx->ext_val)) {
-        lyd_cbor_ctx_free((struct lyd_ctx *)lydctx);
-        LOGMEM(ctx);
-        return LY_EMEM;
-    }
 
     *lydctx_p = lydctx;
     return ret;
@@ -713,12 +691,9 @@ lydcbor_parse_subtree(struct lyd_cbor_ctx *lydctx, struct lyd_node *parent,
     printf("\n");
 
     const struct lysc_node *snode = NULL;
-    struct lyd_node *node = NULL;
     char *key_str = NULL;
     size_t key_len = 0;
-    const char *mod_name = NULL;
-    size_t mod_name_len = 0;
-
+\
     assert(lydctx && first_p && parsed && cbor_obj);
 
     /* assuming that the top level structure is always a map
@@ -1036,22 +1011,17 @@ lyd_parse_cbor(const struct ly_ctx *ctx, const struct lysc_ext_instance *ext, st
     LY_ERR ret = LY_SUCCESS;
     struct lyd_cbor_ctx *lydctx = NULL;
     cbor_item_t *cbor_data = NULL;
-    const char *cbor_input = NULL;
     struct cbor_load_result result = {0};
     enum lyd_cbor_format format;
-
-    assert(ctx && in && lydctx_p);
-    assert(!(parse_opts & ~LYD_PARSE_OPTS_MASK));
-    assert(!(val_opts & ~LYD_VALIDATE_OPTS_MASK));
-    
-    (void)int_opts; /* Currently unused */
-    (void)subtree_sibling; /* Currently unused */
 
     /* Detect CBOR format - Named or SID */ 
     LY_CHECK_GOTO(ret = lydcbor_detect_format(in, &format), cleanup);
 
     /* Initialize context */
     LY_CHECK_GOTO(ret = lydcbor_ctx_init(ctx, in, parse_opts, val_opts, format, &lydctx), cleanup);
+    
+    lydctx->int_opts = int_opts;
+    lydctx->ext = ext;
 
     /* 
      * Loads CBOR data from the current input buffer.
@@ -1064,6 +1034,7 @@ lyd_parse_cbor(const struct ly_ctx *ctx, const struct lysc_ext_instance *ext, st
      * Returns:
      *   cbor_data - Pointer to the loaded CBOR data structure, or NULL on failure.
      */
+    /* need to convert in->current from  const char* to cbor_data type */
     cbor_data = cbor_load(in->current, in->length, &result);
     lydctx->cborctx->cbor_data = cbor_data;
 
@@ -1100,58 +1071,6 @@ cleanup:
 
     *lydctx_p = (struct lyd_ctx *)lydctx;
     return ret;
-}
-
-LIBYANG_API_DEF LY_ERR
-lyd_parse_cbor_data(const struct ly_ctx *ctx, const char *data, size_t data_len, enum lyd_cbor_format format,
-                    uint32_t parse_opts, uint32_t val_opts, struct lyd_node **tree)
-{
-    LY_ERR ret;
-    struct ly_in *in;
-    struct lyd_ctx *lydctx = NULL;
-    struct ly_set parsed = {0};
-
-    LY_CHECK_ARG_RET(ctx, ctx, tree, LY_EINVAL);
-    
-    (void)format; /* Currently unused */
-
-    *tree = NULL;
-
-    if (!data || !data_len)
-    {
-        return LY_SUCCESS;
-    }
-
-    /* Initialize parsed set */
-    ly_set_new(&parsed);
-
-    /* Create input structure */
-    LY_CHECK_RET(ly_in_new_memory(data, &in));
-
-    /* Parse CBOR data */
-    ret = lyd_parse_cbor(ctx, NULL, NULL, tree, in, parse_opts, val_opts, 0, &parsed, NULL, &lydctx);
-
-    /* Cleanup */
-    ly_in_free(in, 0);
-    if (lydctx)
-    {
-        lydctx->free(lydctx);
-    }
-    ly_set_erase(&parsed, NULL);
-
-    return ret;
-}
-
-LIBYANG_API_DEF LY_ERR
-lyd_print_cbor_data(const struct lyd_node *root, enum lyd_cbor_format format, struct ly_out *out, uint32_t options)
-{
-    (void)root;
-    (void)format;
-    (void)out;
-    (void)options;
-
-    LOGERR(NULL, LY_ENOT, "CBOR printing not yet implemented");
-    return LY_ENOT;
 }
 
 #endif /* ENABLE_CBOR_SUPPORT */
