@@ -1159,26 +1159,25 @@ lydcbor_ctx_init(const struct ly_ctx *ctx, struct ly_in *in, uint32_t parse_opts
                  uint32_t val_opts, struct lyd_cbor_ctx **lydctx_p)
 {
     LY_ERR ret = LY_SUCCESS;
-    struct lyd_cbor_ctx *lydctx = NULL;
+    struct lyd_cbor_ctx *lydctx;
 
     assert(lydctx_p);
 
-    /* Initialize context with calloc to ensure all fields are zero */
+    /* init context */
     lydctx = calloc(1, sizeof *lydctx);
     LY_CHECK_ERR_RET(!lydctx, LOGMEM(ctx), LY_EMEM);
     lydctx->parse_opts = parse_opts;
     lydctx->val_opts = val_opts;
     lydctx->free = lyd_cbor_ctx_free;
 
-    /* Create low-level CBOR context */
+    /* Create low-level CBOR context (includes CBOR parsing) */
     LY_CHECK_GOTO(ret = lycbor_ctx_new(ctx, in, &lydctx->cborctx), cleanup);
 
     *lydctx_p = lydctx;
     return ret;
 
 cleanup:
-    if (lydctx)
-    {
+    if (lydctx) {
         lyd_cbor_ctx_free((struct lyd_ctx *)lydctx);
     }
     return ret;
@@ -1191,10 +1190,9 @@ lyd_parse_cbor(const struct ly_ctx *ctx, const struct lysc_ext_instance *ext, st
 {
     LY_ERR ret = LY_SUCCESS;
     struct lyd_cbor_ctx *lydctx = NULL;
-    cbor_item_t *cbor_data = NULL;
-    struct cbor_load_result result = {0};
+    printf("Entering lyd_parse_cbor\n AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH\n");
 
-    /* Initialize context */
+    /* Initialize context (CBOR parsing happens in lycbor_ctx_new) */
     LY_CHECK_GOTO(ret = lydcbor_ctx_init(ctx, in, parse_opts, val_opts, &lydctx), cleanup);
 
     lydctx->int_opts = int_opts;
@@ -1203,51 +1201,23 @@ lyd_parse_cbor(const struct ly_ctx *ctx, const struct lysc_ext_instance *ext, st
     /* find the operation node if it exists already */
     LY_CHECK_GOTO(ret = lyd_parser_find_operation(parent, int_opts, &lydctx->op_node), cleanup);
 
-
-    /*
-     * Loads CBOR data from the current input buffer.
-     *
-     * Parameters:
-     *   in->current - Pointer to the current position in the input buffer.
-     *   in->length  - Length of the data to be loaded.
-     *   &result     - Pointer to a variable where the result status will be stored.
-     *
-     * Returns:
-     *   cbor_data - Pointer to the loaded CBOR data structure, or NULL on failure.
-     */
-    /* need to convert in->current from  const char* to cbor_data type */
-    cbor_data = cbor_load(in->current, in->length, &result);
-    lydctx->cborctx->cbor_data = cbor_data;
-
-    if (!cbor_data)
-    {
-        LOGVAL(ctx, LYVE_SYNTAX, "Failed to parse CBOR data: no data returned from cbor_load().");
-        ret = LY_EVALID;
-        goto cleanup;
-    }
-    if (result.error.code != CBOR_ERR_NONE)
-    {
-        LOGVAL(ctx, LYVE_SYNTAX, "Failed to parse CBOR data: parsing error (code %d).", result.error.code);
-        ret = LY_EVALID;
-        goto cleanup;
-    }
-
-    /* Probably need to check if the obtained data is a operational node and
-    then write functions to parse them accordingly. If not then continue below */
-
     /* Parse the CBOR structure */
-    ret = lydcbor_subtree_r(lydctx, parent, first_p, parsed, cbor_data);
+    ret = lydcbor_subtree_r(lydctx, parent, first_p, parsed, lydctx->cborctx->cbor_data);
+    LY_CHECK_GOTO(ret, cleanup);
+
+        /* Validate operation node presence */
+    if ((int_opts & (LYD_INTOPT_RPC | LYD_INTOPT_ACTION | LYD_INTOPT_NOTIF | LYD_INTOPT_REPLY)) && 
+        !lydctx->op_node) {
+        LOGVAL(ctx, LYVE_DATA, "Missing the operation node.");
+        ret = LY_EVALID;
+        goto cleanup;
+    }
+    /* also need to deal with metadata linking etc*/
 
 cleanup:
-    if (cbor_data)
-    {
-        cbor_decref(&cbor_data);
-    }
 
-    if (ret)
-    {
-        if (lydctx)
-        {
+    if (ret) {
+        if (lydctx) {
             lyd_cbor_ctx_free((struct lyd_ctx *)lydctx);
             lydctx = NULL;
         }

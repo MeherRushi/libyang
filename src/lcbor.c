@@ -58,31 +58,48 @@ lydcbor_detect_format(struct ly_in *in, enum lyd_cbor_format *format)
  *
  * @param[in] ctx libyang context.
  * @param[in] in Input handler.
- * @param[out] cbor_ctx_p Pointer to store the created CBOR context.
+ * @param[out] cborctx_p Pointer to store the created CBOR context.
  * @return LY_ERR value.
  */
 LY_ERR
-lycbor_ctx_new(const struct ly_ctx *ctx, struct ly_in *in, struct lycbor_ctx **cbor_ctx_p)
+lycbor_ctx_new(const struct ly_ctx *ctx, struct ly_in *in, struct lycbor_ctx **cborctx_p)
 {
     /* TODO : Need to restructure error handling here */
     LY_ERR ret = LY_SUCCESS;
-    struct lycbor_ctx *cbor_ctx;
+    struct lycbor_ctx *cborctx;
+    struct cbor_load_result result = {0};
     enum lyd_cbor_format format;
 
-    assert(ctx && in && cbor_ctx_p);
+    assert(ctx && in && cborctx_p);
 
     /* TODO : error handling after the detect_format function call */
     ret = lydcbor_detect_format(in, &format);
 
     /* Allocate and initialize CBOR context */
-    cbor_ctx = calloc(1, sizeof *cbor_ctx);
-    LY_CHECK_ERR_RET(!cbor_ctx, LOGMEM(ctx), LY_EMEM);
+    cborctx = calloc(1, sizeof *cborctx);
+    LY_CHECK_ERR_RET(!cborctx, LOGMEM(ctx), LY_EMEM);
+    cborctx->ctx = ctx;
+    cborctx->in = in;
+    cborctx->format = format;
 
-    cbor_ctx->ctx = ctx;
-    cbor_ctx->in = in;
-    cbor_ctx->format = format;
+    /* load and parse CBOR data */
+    cborctx->cbor_data = cbor_load(in->current, in->length, &result);
+    if (!cborctx->cbor_data) {
+        LOGVAL(ctx, LYVE_SYNTAX, "Failed to parse CBOR data.");
+        free(cborctx);
+        return LY_EVALID;
+    }
+    if (result.error.code != CBOR_ERR_NONE) {
+        LOGVAL(ctx, LYVE_SYNTAX, "CBOR parsing error (code %d).", result.error.code);
+        cbor_decref(&cborctx->cbor_data);
+        free(cborctx);
+        return LY_EVALID;
+    }
 
-    *cbor_ctx_p = cbor_ctx;
+    /* input line logging */
+    ly_log_location(NULL, NULL, NULL, in);
+
+    *cborctx_p = cborctx;
     return ret;
 }
 
