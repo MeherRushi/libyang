@@ -23,16 +23,71 @@
 #include "log.h"
 #include "ly_common.h"
 
+const char *
+lycbor_token2str(enum cbor_type cbortype)
+{
+    switch (cbortype) {
+    case CBOR_TYPE_UINT:
+        return "unsigned integer";
+    case CBOR_TYPE_NEGINT:
+        return "negative integer";
+    case CBOR_TYPE_BYTESTRING:
+        return "byte string";
+    case CBOR_TYPE_STRING:
+        return "string";
+    case CBOR_TYPE_ARRAY:
+        return "array";
+    case CBOR_TYPE_MAP:
+        return "map";
+    case CBOR_TYPE_TAG:
+        return "tag";
+    case CBOR_TYPE_FLOAT_CTRL:
+        return "decimals and special values (true, false, nil, ...)";
+    }
+
+    return "";
+}
+
+        return "object";
+    case LYJSON_OBJECT_NEXT:
+        return "object next";
+    case LYJSON_OBJECT_CLOSED:
+        return "object closed";
+    case LYJSON_ARRAY:
+        return "array";
+    case LYJSON_ARRAY_NEXT:
+        return "array next";
+    case LYJSON_ARRAY_CLOSED:
+        return "array closed";
+    case LYJSON_OBJECT_NAME:
+        return "object name";
+    case LYJSON_NUMBER:
+        return "number";
+    case LYJSON_STRING:
+        return "string";
+    case LYJSON_TRUE:
+        return "true";
+    case LYJSON_FALSE:
+        return "false";
+    case LYJSON_NULL:
+        return "null";
+    case LYJSON_END:
+        return "end of input";
+    }
+
+    return "";
+}
+
 /**
  * @brief Free CBOR context.
  *
- * @param[in] cbor_ctx CBOR context to free.
+ * @param[in] cborctx CBOR context to free.
  */
-void lycbor_ctx_free(struct lycbor_ctx *cbor_ctx)
+void lycbor_ctx_free(struct lycbor_ctx *cborctx)
 {
-    if (cbor_ctx)
+    if (cborctx)
     {
-        free(cbor_ctx);
+        free(cborctx);
     }
 }
 
